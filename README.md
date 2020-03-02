@@ -14,4 +14,5 @@ How the game works:
   9. Note that at each landmark, the merchant will be offering different prices on the items you can buy and sell.
   10. The Wagon Leader(you) starts off the game with $1,000 cash, nothing in your inventory, and 3,000 miles of trail ahead of you.
   
+  
   Good Luck!
