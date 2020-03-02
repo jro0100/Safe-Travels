@@ -348,3 +348,7 @@ MigrationBackup/
 
 # Ionide (cross platform F# VS Code tools) working folder
 .ionide/
+/.gitattributes
+/Safe Travels/Safe Travels.vcxproj.filters
+/Safe Travels/Safe Travels.vcxproj
+/Safe Travels/Safe Travels.sln
