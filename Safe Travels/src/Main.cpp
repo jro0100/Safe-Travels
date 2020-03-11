@@ -14,6 +14,7 @@
 #include "Journey.h"	  //Tested
 #include "Menu.h"		  //Tested
 #include "Random.h"		  //Tested
+#include "Validation.h"
 
 int main()
 {
