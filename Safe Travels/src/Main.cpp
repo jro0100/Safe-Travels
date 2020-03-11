@@ -13,9 +13,13 @@
 #include "Date.h"		  //Tested
 #include "Journey.h"	  //Tested
 #include "Menu.h"		  //Tested
+#include "Random.h"		  //Tested
 
 int main()
-{/*  ----------- Some Test Code For the Menu Class ----------
+{
+//	srand((unsigned)time(NULL)); //Used for random numbers in the random header file
+
+	/*  ----------- Some Test Code For the Menu Class ----------
 	Menu menu;
 	menu.welcomeMenu();
 
