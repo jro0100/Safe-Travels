@@ -30,7 +30,7 @@ int getNumChoice(int min, int max)
 	int choice{ 0 };
 
 	std::vector<int> possibleChoices;
-		for (int i = 0; i < (max - min); i++)
+		for (int i = 0; i < (max - min + 1); i++)
 			possibleChoices.push_back(min + i);
 
 	//Continuously loops until the entry is an integer between 1 and 3 inclusively
@@ -46,7 +46,7 @@ int getNumChoice(int min, int max)
 		}
 		else
 		{
-			for (int i = 0; i < (max - min); i++)
+			for (int i = 0; i < (max - min + 1); i++)
 				if (choice == possibleChoices[i])
 					return choice;
 		}
