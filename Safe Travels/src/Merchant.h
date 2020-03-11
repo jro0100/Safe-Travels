@@ -2,16 +2,13 @@
 #include <iostream>
 #include "Inventory.h"
 #include "WagonLeader.h"
+#include "Pricing.h"
+#include "Random.h"
+#include "Validation.h"
 
 /*---------------WORK IN PROGRESS---------------*/
 
 /*
-	Design Plan: Also create a pricing class which holds all of the prices that the merchant will offer.
-	
-	1.) Create a header file that holds a random number generator to use throughout the game.
-	2.) Possibly create a header file that holds a universal validation function to be used throughout the game. This
-	validation function will accept a min choice and max choice and check to make sure one of those choices
-	were entered.
 	
 	When the player interacts with the merchant, the interactWithMerchant(WagonLeader&) will be called. 
 	This function will call the proper functions to refresh the merchant's pricing and inventory and 
@@ -33,13 +30,13 @@ class Merchant
 {
 private:
 	Inventory m_inventory;
-	//Pricing m_pricing; //Need to create a Pricing class. Refer to GameDesign.drawio for details
+	Pricing m_pricing;
 public:
 	//--------Constructor---------//
 	Merchant() : m_inventory{ 100, 50, 20 } {}
 
-	void buyItem(WagonLeader &wagonLeader); //Interface for purchasing an item
-	void sellItem(WagonLeader &wagonLeader); //Interface for selling an item
+	void buyItems(Inventory &inventory, WagonLeader &wagonLeader); //Interface for purchasing an item
+	void sellItems(Inventory &inventory, WagonLeader &wagonLeader); //Interface for selling an item
 	void setRandomInventory(); //Randomly resets the merchants inventory when called
-	void interactWithMerchant(WagonLeader &wagonLeader); //Main function for interacting with player
+	void interactWithMerchant(Inventory &inventory, WagonLeader &wagonLeader); //Main function for interacting with player
 };

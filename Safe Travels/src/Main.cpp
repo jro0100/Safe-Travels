@@ -15,9 +15,19 @@
 #include "Menu.h"		  //Tested
 #include "Random.h"		  //Tested
 #include "Validation.h"
+#include "Merchant.h"
 
 int main()
 {
+	Menu menu;
+	menu.welcomeMenu();	
+
+	Inventory inventory;
+	WagonLeader wagonLeader("Justin", inventory);
+	wagonLeader.displayInventory(inventory);
+		
+	Merchant merchant;
+	merchant.interactWithMerchant(inventory, wagonLeader);
 //	srand((unsigned)time(NULL)); //Used for random numbers in the random header file
 
 	/*  ----------- Some Test Code For the Menu Class ----------

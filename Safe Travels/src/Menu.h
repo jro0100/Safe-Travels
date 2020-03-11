@@ -18,9 +18,6 @@ public:
 	//Display the about the game summary
 	void aboutTheGame();
 
-	//Displays inventory of player
-	void displayInventory(const Inventory &inventory, const WagonLeader &wagonLeader);
-
 	//Displays family members and all their statuses.
 	void displayFamilyMembers(const std::vector<FamilyMember> familyMember);
 };

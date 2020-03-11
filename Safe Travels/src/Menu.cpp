@@ -33,7 +33,6 @@ void Menu::welcomeMenu()
 	system("cls");
 }
 
-
 //-----------NEED TO FINISH----------//
 //Displays the rules for the game.
 void Menu::showRules()
@@ -47,20 +46,6 @@ void Menu::showRules()
 void Menu::aboutTheGame()
 {
 	std::cout << "The game is simple... To Be Updated\n";
-	pauseScreen();
-}
-
-
-//Displays the current inventory.
-void Menu::displayInventory(const Inventory &inventory, const WagonLeader &wagonLeader)
-{
-	std::cout << "\t\tInventory\n"
-		<< "\t---------------------------\n"
-		<< "Cash On Hand --> " << wagonLeader.getCashOnHand() << "\n"
-		<< "Food(lbs) --> " << inventory.getFoodCount() << "\n"
-		<< "Medicine  --> " << inventory.getMedicineCount() << "\n"
-		<< "Wagon Parts --> " << inventory.getWagonPartsCount() << "\n\n";
-
 	pauseScreen();
 }
 
