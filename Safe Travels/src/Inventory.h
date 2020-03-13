@@ -15,17 +15,17 @@ public:
 
 	//Functions to alter the food
 	void setFoodCount(int count); //Used only by the merchant
-	void increaseFood(int count);
+	void changeFoodCount(int count);
 	void useFood(); //m_medicinePartsCount--;
 
 	//Functions to alter the medicine
 	void setMedicineCount(int count); //Used only by the merchant
-	void increaseMedicine(int count);
+	void changeMedicineCount(int count);
 	void useMedicine(); //m_medicinePartsCount--;
 
 	//Functions to alter the wagon parts
 	void setWagonPartsCount(int count); //Used only by the merchant
-	void increaseWagonParts(int count);
+	void changeWagonPartsCount(int count);
 	void useWagonPart(); //m_wagonPartsCount--;
 
 	//Function getters

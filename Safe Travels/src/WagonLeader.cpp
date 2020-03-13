@@ -20,8 +20,8 @@ void WagonLeader::displayInventory(const Inventory &inventory)
 		<< "Medicine  --> " << inventory.getMedicineCount() << "\n"
 		<< "Wagon Parts --> " << inventory.getWagonPartsCount() << "\n\n";
 
-	std::cout << "Press Any Key to Return";
-	std::cin.ignore(32767, '\n');
-	std::cin.get();
-	system("cls");
+//	std::cout << "Press Any Key to Return";
+//	std::cin.ignore(32767, '\n');
+//	std::cin.get();
+//	system("cls");
 }

@@ -8,7 +8,7 @@ void Inventory::setFoodCount(int count)
 }
 
 //Increases the food inventory
-void Inventory::increaseFood(int count)
+void Inventory::changeFoodCount(int count)
 {
 	m_foodCount += count;
 }
@@ -26,7 +26,7 @@ void Inventory::setMedicineCount(int count)
 }
 
 	//Increases the medicine inventory
-void Inventory::increaseMedicine(int count)
+void Inventory::changeMedicineCount(int count)
 {
 	m_medicineCount += count;
 }
@@ -44,7 +44,7 @@ void Inventory::setWagonPartsCount(int count)
 	m_wagonPartsCount = count;
 }
 	//Increases the wagon parts inventory
-void Inventory::increaseWagonParts(int count)
+void Inventory::changeWagonPartsCount(int count)
 {
 	m_wagonPartsCount += count;
 }

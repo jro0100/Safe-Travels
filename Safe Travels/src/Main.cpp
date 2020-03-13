@@ -3,7 +3,8 @@
 //Game designed on 2/29/2020
 //Coding began on 3/1/2020
 
-//UPDATE (3/7/20) - Added and tested the Menu class.
+//Update (3/7/20)  - Added and tested the Menu class.
+//Update (3/12/20) - Updated the Merchant class
 
 #include <iostream>
 #include <string>
@@ -19,16 +20,15 @@
 
 int main()
 {
+	srand((unsigned)time(NULL)); //Used for random numbers in the random header file
 	Menu menu;
 	menu.welcomeMenu();	
 
 	Inventory inventory;
 	WagonLeader wagonLeader("Justin", inventory);
-	wagonLeader.displayInventory(inventory);
 		
 	Merchant merchant;
 	merchant.interactWithMerchant(inventory, wagonLeader);
-//	srand((unsigned)time(NULL)); //Used for random numbers in the random header file
 
 	/*  ----------- Some Test Code For the Menu Class ----------
 	Menu menu;
