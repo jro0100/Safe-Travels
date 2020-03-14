@@ -14,14 +14,9 @@ int WagonLeader::getCashOnHand() const { return m_cashOnHand; }
 void WagonLeader::displayInventory(const Inventory &inventory)
 {
 	std::cout << "\t\tYour Inventory\n"
-		<< "\t--------------------------------\n"
-		<< "Cash On Hand --> " << getCashOnHand() << "\n"
-		<< "Food(lbs) --> " << inventory.getFoodCount() << "\n"
-		<< "Medicine  --> " << inventory.getMedicineCount() << "\n"
-		<< "Wagon Parts --> " << inventory.getWagonPartsCount() << "\n\n";
-
-//	std::cout << "Press Any Key to Return";
-//	std::cin.ignore(32767, '\n');
-//	std::cin.get();
-//	system("cls");
+		<< "\t-----------------------------\n"
+		<< "Food: " << inventory.getFoodCount() << " lbs\n"
+		<< "Medicine: " << inventory.getMedicineCount() << " pills\n"
+		<< "Wagon Parts: " << inventory.getWagonPartsCount() << " parts\n"
+		<< "Cash On Hand: $" << getCashOnHand() << "\n\n";
 }

@@ -3,12 +3,11 @@
 #include "Inventory.h"
 #include "WagonLeader.h"
 #include "Pricing.h"
+#include "Journey.h"
 #include "Random.h"
 #include "Validation.h"
 
 /*
-	TODO: Need to update the make purchase member function to take into account
-		  the merchant's inventory when the player is purchasing an item.
 	TODO: Need to add comments to the member functions of Merchant.cpp.
 */
 
@@ -53,10 +52,13 @@ public:
 	void buyOrSellItems(Inventory &inventory, WagonLeader &wagonLeader, buyOrSell choice);
 	
 	//Main function for interacting with player
-	void interactWithMerchant(Inventory &inventory, WagonLeader &wagonLeader);
+	void interactWithMerchant(const Journey &journey, Inventory &inventory, WagonLeader &wagonLeader);
 
 	//Does all the backend work for buying and selling an item
 	void makePurchase(Inventory &inventory, WagonLeader &wagonLeader, buyOrSell buyOrSellChoice, buySellItems buySellItem);
+
+	//Prints the merchants inventory to the screen
+	void printMerchantsInventory();
 
 	//Randomly resets the inventory of the merchant. The merchants inventory is reset each visit.
 	void setRandomInventory();

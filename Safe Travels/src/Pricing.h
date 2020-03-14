@@ -23,10 +23,10 @@ public:
 	void setRandomPrices();
 
 	//Prints all buying prices. In this case, merchant is buying and player is selling.
-	void getBuyingPrices();
+	void printBuyingPrices();
 
 	//Prints all selling prices. In this case, merchant is selling and player is buying.
-	void getSellingPrices();
+	void printSellingPrices();
 
 	//Passes in a buy or sell choice from the player as well as an item to buy or sell.
 	//Retruns the appropriate buying or selling price for that item.

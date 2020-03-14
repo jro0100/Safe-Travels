@@ -13,23 +13,23 @@ void Pricing::setRandomPrices()
 }
 
 //Prints all buying prices. In this case, merchant is buying and player is selling.
-void Pricing::getBuyingPrices()
+void Pricing::printBuyingPrices()
 {
 	std::cout << "\t\tSelling Prices\n"
-		<< "\t--------------------------------\n"
+		<< "\t  ------------------------\n"
 		<< "Food: $" << m_buyFoodPrice << " per lb\n" 
-		<< "Medicine: $" << m_buyMedicinePrice << " each\n" 
-		<< "Wagon Parts: $" << m_buyWagonPartsPrice << " each\n\n";
+		<< "Medicine: $" << m_buyMedicinePrice << " per pill\n" 
+		<< "Wagon Parts: $" << m_buyWagonPartsPrice << " per part\n\n";
 }
 
 //Prints all selling prices. In this case, merchant is selling and player is buying.
-void Pricing::getSellingPrices()
+void Pricing::printSellingPrices()
 {
 	std::cout << "\t\tBuying Prices\n"
-		<< "\t--------------------------------\n" 
-		<< "Food: $" << m_sellFoodPrice << " per lb\n" 
-		<< "Medicine: $" << m_sellMedicinePrice << " each \n" 
-		<< "Wagon Parts: $" << m_sellWagonPartsPrice << " each\n\n";
+		<< "\t  ------------------------\n"
+		<< "Food: $" << m_sellFoodPrice << " per lb\n"
+		<< "Medicine: $" << m_sellMedicinePrice << " per pill \n"
+		<< "Wagon Parts: $" << m_sellWagonPartsPrice << " per part\n\n";
 }
 
 //Passes in a buy or sell choice from the player as well as an item to buy or sell.

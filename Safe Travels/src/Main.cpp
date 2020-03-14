@@ -27,8 +27,14 @@ int main()
 	Inventory inventory;
 	WagonLeader wagonLeader("Justin", inventory);
 		
+	Journey journey;
+
+
 	Merchant merchant;
-	merchant.interactWithMerchant(inventory, wagonLeader);
+	while (true)
+	{
+		merchant.interactWithMerchant(journey, inventory, wagonLeader);
+	}
 
 	/*  ----------- Some Test Code For the Menu Class ----------
 	Menu menu;
