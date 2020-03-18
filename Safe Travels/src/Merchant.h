@@ -36,7 +36,8 @@ public:
 	{
 		FOOD	    = 1,
 		MEDICINE	= 2,
-		WAGON_PARTS = 3
+		WAGON_PARTS = 3,
+		EXIT		= 4
 	};
 private:
 	//The merchant holds his own inventory
