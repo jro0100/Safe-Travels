@@ -23,5 +23,5 @@ void Journey::increaseMilesTravelled(int miles)
 
 	//Don't allow the player to travel past the destination without having the option to stop
 	if (m_milesToNextDest < 0)
-		m_milesToNextDest = 400;
+		m_milesToNextDest = 100;
 }

@@ -20,20 +20,92 @@
 
 int main()
 {
+	//---The following is only a short test for of the game to make sure components will work together correctly---//
+
 	srand((unsigned)time(NULL)); //Used for random numbers in the random header file
 	Menu menu;
 	menu.welcomeMenu();	
-
-	Inventory inventory;
-	WagonLeader wagonLeader("Justin", inventory);
-		
 	Journey journey;
-
-
+	Date date;
+	Inventory inventory;
 	Merchant merchant;
+
+	std::cout << "Welcome traveler, enter your name --> ";
+	std::string name;
+	std::cin >> name;
+	
+	//----CREATE FAMILY----//
+	WagonLeader wagonLeader(name, inventory);
+	std::vector<FamilyMember> familyMember{};
+	for (int i = 0; i < 4; i++)
+	{
+		if (i == 0)
+			std::cout << "What is your wife's name? --> ";
+		else if (i == 1)
+			std::cout << "What is your 6 year old son's name? --> ";
+		else if (i == 2)
+			std::cout << "What is your 10 year old daughter's name? --> ";
+		else if (i == 3)
+			std::cout << "What is your 13 year old son's name? --> ";
+			
+			std::cin >> name;
+			familyMember.push_back(FamilyMember{ name, inventory });
+	}
+
+	system("cls");
+
 	while (true)
 	{
-		merchant.interactWithMerchant(journey, inventory, wagonLeader);
+		std::cout << "\tDate --> " << date << "\n"
+			<< "\tTotal Miles Travelled --> " << journey.getMilesTravelled() << "\n"
+			<< "\tMiles Remaining --> " << journey.getMilesRemaining() << "\n"
+			<< "\tMiles to next Destination --> " << journey.getMilesToNextDest() << "\n"
+			<< "\t-------------------------------\n"
+			<< "(1) View family stats\n"
+			//Need to create good/bad outcomes of exploring. Perhaps an Exploration class
+			//Bad outcomes of the exploration class can be based off the month of the year.
+			<< "(2) Stop and explore\n"
+			<< "(3) Continue on your journey\n";
+		if (journey.getMilesToNextDest() == 100)
+			std::cout << "(4) Interact with the merchant\n";
+
+		std::cout << "\n";
+
+		int choice;
+		if (journey.getMilesToNextDest() == 100)
+			choice = getNumChoice(1, 4);
+		else
+			choice = getNumChoice(1, 3);
+		
+		system("cls");
+		
+		switch (choice)
+		{
+		case(1):
+			menu.displayFamilyMembers(familyMember);
+			break;
+		case(2):
+			std::cout << "TBD";
+			break;
+		case(3):
+			date.increaseDate();
+			journey.increaseMilesTravelled(getRandomNum(20, 50));
+
+			for (int i = 0; i < familyMember.size(); i++)
+			{
+				//These ar eonly temporary functions. What I really need to do is
+				//create a runThroughRound type of member function in the family member class.
+				//This member function will take into account the appetite, etc.
+				inventory.useFood();
+				inventory.useMedicine();
+				inventory.useWagonPart();
+			}
+			break;
+		case(4):
+			merchant.interactWithMerchant(journey, inventory, wagonLeader);
+			break;
+		}
+	
 	}
 
 	/*  ----------- Some Test Code For the Menu Class ----------

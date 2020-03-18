@@ -62,6 +62,6 @@ std::string Date::getMonth() const
 //Overloaded operator<<. Prints the date
 std::ostream& operator<<(std::ostream &out, const Date &date)
 {
-	out << "Month: " << date.getMonth() << " Week: " << date.m_week << " Year: " << date.m_year;
+	out << date.getMonth() << " Week: "<< date.m_week << "Year: " << date.m_year;
 	return out;
 }

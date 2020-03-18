@@ -9,7 +9,7 @@ private:
 	int m_milesToNextDest;				//Miles remaining until the next destinationis reached
 public:
 	//---------Constructor--------//
-	Journey() :m_totalMilesTravelled{ 0 }, m_milesRemaining{ TOTAL_GAME_MILES }, m_milesToNextDest{ 400 } {}
+	Journey() :m_totalMilesTravelled{ 0 }, m_milesRemaining{ TOTAL_GAME_MILES }, m_milesToNextDest{ 100 } {}
 
 	//Increases the miles travelled for the week
 	void increaseMilesTravelled(int miles);
