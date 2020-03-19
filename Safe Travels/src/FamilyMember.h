@@ -1,5 +1,6 @@
 #pragma once
 #include "Player.h"
+#include "Random.h"
 
 class FamilyMember final : public Player
 {
@@ -29,12 +30,15 @@ public:
 	void decreaseAppetite();
 
 	//Decreases the family member's health
-	void decreaseHealth(int count);
+	void decreaseHealth();
 
 	//------------Function Member Getters-----------//
 	int getSickWeight() const { return m_sickWeight; }
 	int getHealth()     const { return m_health; }
 	int getAppetite()   const { return m_appetite; }
+
+	//Runs through a single turn for a family member
+	void runThroughRound();
 
 	//Return the name of the Family Member//
 	virtual std::string getName() const final override { return m_name; }

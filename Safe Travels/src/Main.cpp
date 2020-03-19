@@ -18,6 +18,21 @@
 #include "Validation.h"
 #include "Merchant.h"
 
+void memberDied(const FamilyMember &familyMember)
+{
+	system("cls");
+	std::cout << "\t\tDeath in Family\n"
+		<< "\t\t----------------\n"
+		<< familyMember.getName() << " has died!\n\n"
+		<< "Health --> " << familyMember.getHealth() << "\n"
+		<< "Appetite --> " << familyMember.getAppetite() << "\n"
+		<< "Sick Level --> " << familyMember.getSickWeight() << "\n\n";
+	std::cout << "Press any key to continue";
+	std::cin.ignore(32767, '\n');
+	std::cin.get();
+	system("cls");
+}
+
 int main()
 {
 	//---The following is only a short test for of the game to make sure components will work together correctly---//
@@ -93,12 +108,13 @@ int main()
 
 			for (int i = 0; i < familyMember.size(); i++)
 			{
-				//These ar eonly temporary functions. What I really need to do is
-				//create a runThroughRound type of member function in the family member class.
-				//This member function will take into account the appetite, etc.
-				inventory.useFood();
-				inventory.useMedicine();
-				inventory.useWagonPart();
+				//Runs through the round for 
+				familyMember[i].runThroughRound();
+				if (familyMember[i].isDead())
+				{
+					memberDied(familyMember[i]);
+					//familyMember.erase(familyMember.begin() + i);
+				}
 			}
 			break;
 		case(4):
