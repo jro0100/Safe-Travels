@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2020-03-14T01:17:16.812Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:74.0) Gecko/20100101 Firefox/74.0" etag="_grLfNNBQo5faSiWgq1I" version="12.8.4" type="github">
+<mxfile host="app.diagrams.net" modified="2020-03-18T18:26:33.332Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:74.0) Gecko/20100101 Firefox/74.0" etag="5Jkt2yvPTN3p-7jIuDcR" version="12.8.8" type="github">
   <diagram id="C5RBs43oDa-KdzZeNtuy" name="Page-1">
     <mxGraphModel dx="2185" dy="2000" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -35,20 +35,6 @@
         <mxCell id="zkfFHV4jXpPFQw0GAbJ--10" value="void setFoodCount(int)&#xa;&#xa;void changeFoodCount(int)&#xa;&#xa;void useFood()&#xa;&#xa;void setMedicineCount(int)&#xa;&#xa;void changeMedicineCount(int)&#xa;&#xa;void useMedicine()&#xa;&#xa;void setWagonPartsCount(int)&#xa;&#xa;void changeWagonPartsCount(int)&#xa;&#xa;void useWagonPart()&#xa;&#xa;int getFoodCount()&#xa;&#xa;int getMedicineCount()&#xa;&#xa;int getWagonPartsCount()&#xa;" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontStyle=0" parent="zkfFHV4jXpPFQw0GAbJ--6" vertex="1">
           <mxGeometry y="112" width="230" height="338" as="geometry" />
         </mxCell>
-        <mxCell id="zkfFHV4jXpPFQw0GAbJ--13" value="Journey" style="swimlane;fontStyle=0;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;rounded=0;shadow=0;strokeWidth=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
-          <mxGeometry x="-300" y="465" width="160" height="150" as="geometry">
-            <mxRectangle x="340" y="380" width="170" height="26" as="alternateBounds" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="zkfFHV4jXpPFQw0GAbJ--14" value="int totalMilesTravelled&#xa;&#xa;int milesToNextDest&#xa;" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="zkfFHV4jXpPFQw0GAbJ--13" vertex="1">
-          <mxGeometry y="26" width="160" height="54" as="geometry" />
-        </mxCell>
-        <mxCell id="zkfFHV4jXpPFQw0GAbJ--15" value="" style="line;html=1;strokeWidth=1;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;" parent="zkfFHV4jXpPFQw0GAbJ--13" vertex="1">
-          <mxGeometry y="80" width="160" height="8" as="geometry" />
-        </mxCell>
-        <mxCell id="LPH6ivnVHNcIVXCUG9c9-10" value="int getMilesTravelled()&#xa;&#xa;int getMilesToNextDest()" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="zkfFHV4jXpPFQw0GAbJ--13" vertex="1">
-          <mxGeometry y="88" width="160" height="62" as="geometry" />
-        </mxCell>
         <mxCell id="LPH6ivnVHNcIVXCUG9c9-22" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="LPH6ivnVHNcIVXCUG9c9-12" target="zkfFHV4jXpPFQw0GAbJ--0" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
@@ -84,7 +70,7 @@
           <mxGeometry y="122" width="430" height="308" as="geometry" />
         </mxCell>
         <mxCell id="LPH6ivnVHNcIVXCUG9c9-34" value="Date" style="swimlane;fontStyle=0;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;rounded=0;shadow=0;strokeWidth=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
-          <mxGeometry x="-100" y="465" width="160" height="200" as="geometry">
+          <mxGeometry x="-100" y="465" width="160" height="235" as="geometry">
             <mxRectangle x="130" y="380" width="160" height="26" as="alternateBounds" />
           </mxGeometry>
         </mxCell>
@@ -100,8 +86,8 @@
         <mxCell id="LPH6ivnVHNcIVXCUG9c9-38" value="" style="line;html=1;strokeWidth=1;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;" parent="LPH6ivnVHNcIVXCUG9c9-34" vertex="1">
           <mxGeometry y="140" width="160" height="2" as="geometry" />
         </mxCell>
-        <mxCell id="LPH6ivnVHNcIVXCUG9c9-39" value="void increaseDate()&#xa;&#xa;void getDate()&#xa;" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontStyle=0" parent="LPH6ivnVHNcIVXCUG9c9-34" vertex="1">
-          <mxGeometry y="142" width="160" height="58" as="geometry" />
+        <mxCell id="LPH6ivnVHNcIVXCUG9c9-39" value="void increaseDate()&#xa;&#xa;std::string getMonth() const&#xa;&#xa;void getDate()&#xa;" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontStyle=0" parent="LPH6ivnVHNcIVXCUG9c9-34" vertex="1">
+          <mxGeometry y="142" width="160" height="78" as="geometry" />
         </mxCell>
         <mxCell id="ujdBgQ368yUOR3aBqQAS-1" value="Menu" style="swimlane;fontStyle=0;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;rounded=0;shadow=0;strokeWidth=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
           <mxGeometry x="90" y="465" width="360" height="150" as="geometry">
@@ -114,8 +100,22 @@
         <mxCell id="ujdBgQ368yUOR3aBqQAS-6" value="void welcomeMenu()&#xa;&#xa;void showRules()&#xa;&#xa;void aboutTheGame()&#xa;&#xa;void displayFamilyMembers(const std::vector&lt;FamilyMember&gt;)" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontStyle=0" parent="ujdBgQ368yUOR3aBqQAS-1" vertex="1">
           <mxGeometry y="28" width="360" height="122" as="geometry" />
         </mxCell>
+        <mxCell id="TEOQJaO2EMKdjx9Uq9Gn-12" value="Pricing //Not yet Created" style="swimlane;fontStyle=0;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;rounded=0;shadow=0;strokeWidth=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+          <mxGeometry x="-190" y="720" width="200" height="320" as="geometry">
+            <mxRectangle x="130" y="380" width="160" height="26" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="TEOQJaO2EMKdjx9Uq9Gn-13" value="int m_buyFoodPrice&#xa;&#xa;int m_buyMedicinePrice&#xa;&#xa;int m_buyWagonPartsPrice&#xa;&#xa;int m_sellFoodPrice&#xa;&#xa;int m_sellMedicinePrice&#xa;&#xa;int m_sellWagonpartsPrice&#xa;" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="TEOQJaO2EMKdjx9Uq9Gn-12" vertex="1">
+          <mxGeometry y="26" width="200" height="174" as="geometry" />
+        </mxCell>
+        <mxCell id="TEOQJaO2EMKdjx9Uq9Gn-14" value="" style="line;html=1;strokeWidth=1;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;" parent="TEOQJaO2EMKdjx9Uq9Gn-12" vertex="1">
+          <mxGeometry y="200" width="200" height="2" as="geometry" />
+        </mxCell>
+        <mxCell id="TEOQJaO2EMKdjx9Uq9Gn-15" value="void setRandomPrices()&#xa;&#xa;void printBuyingPrices()&#xa;&#xa;void printSellingPrices()&#xa;&#xa;int getItemPrice(int, int)&#xa;" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontStyle=0" parent="TEOQJaO2EMKdjx9Uq9Gn-12" vertex="1">
+          <mxGeometry y="202" width="200" height="118" as="geometry" />
+        </mxCell>
         <mxCell id="TEOQJaO2EMKdjx9Uq9Gn-0" value="Merchant" style="swimlane;fontStyle=0;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;rounded=0;shadow=0;strokeWidth=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
-          <mxGeometry x="40" y="690" width="410" height="290" as="geometry">
+          <mxGeometry x="40" y="720" width="410" height="290" as="geometry">
             <mxRectangle x="130" y="380" width="160" height="26" as="alternateBounds" />
           </mxGeometry>
         </mxCell>
@@ -128,19 +128,19 @@
         <mxCell id="TEOQJaO2EMKdjx9Uq9Gn-5" value="void buyOrSellItems(Inventory&amp;, WagonLeader&amp;, buyOrSell)&#xa;&#xa;void setRandomInventory()&#xa;&#xa;void interactWithMerchant(const Journey&amp;, Inventory&amp;, WagonLeader&amp;)&#xa;&#xa;void makePurchase(Inventory&amp;, WagonLeader&amp;, buyOrSell, buySellItems&#xa;&#xa;void printMerchantsInventory()&#xa;" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontStyle=0" parent="TEOQJaO2EMKdjx9Uq9Gn-0" vertex="1">
           <mxGeometry y="142" width="410" height="148" as="geometry" />
         </mxCell>
-        <mxCell id="TEOQJaO2EMKdjx9Uq9Gn-12" value="Pricing //Not yet Created" style="swimlane;fontStyle=0;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;rounded=0;shadow=0;strokeWidth=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
-          <mxGeometry x="-190" y="690" width="200" height="320" as="geometry">
-            <mxRectangle x="130" y="380" width="160" height="26" as="alternateBounds" />
+        <mxCell id="zkfFHV4jXpPFQw0GAbJ--13" value="Journey" style="swimlane;fontStyle=0;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;rounded=0;shadow=0;strokeWidth=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+          <mxGeometry x="-310" y="465" width="180" height="175" as="geometry">
+            <mxRectangle x="340" y="380" width="170" height="26" as="alternateBounds" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="TEOQJaO2EMKdjx9Uq9Gn-13" value="int m_buyFoodPrice&#xa;&#xa;int m_buyMedicinePrice&#xa;&#xa;int m_buyWagonPartsPrice&#xa;&#xa;int m_sellFoodPrice&#xa;&#xa;int m_sellMedicinePrice&#xa;&#xa;int m_sellWagonpartsPrice&#xa;" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="TEOQJaO2EMKdjx9Uq9Gn-12" vertex="1">
-          <mxGeometry y="26" width="200" height="174" as="geometry" />
+        <mxCell id="zkfFHV4jXpPFQw0GAbJ--14" value="int totalMilesTravelled&#xa;&#xa;int milesToNextDest&#xa;" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="zkfFHV4jXpPFQw0GAbJ--13" vertex="1">
+          <mxGeometry y="26" width="180" height="54" as="geometry" />
         </mxCell>
-        <mxCell id="TEOQJaO2EMKdjx9Uq9Gn-14" value="" style="line;html=1;strokeWidth=1;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;" parent="TEOQJaO2EMKdjx9Uq9Gn-12" vertex="1">
-          <mxGeometry y="200" width="200" height="2" as="geometry" />
+        <mxCell id="zkfFHV4jXpPFQw0GAbJ--15" value="" style="line;html=1;strokeWidth=1;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;" parent="zkfFHV4jXpPFQw0GAbJ--13" vertex="1">
+          <mxGeometry y="80" width="180" height="8" as="geometry" />
         </mxCell>
-        <mxCell id="TEOQJaO2EMKdjx9Uq9Gn-15" value="void setRandomPrices()&#xa;&#xa;void printBuyingPrices()&#xa;&#xa;void printSellingPrices()&#xa;&#xa;int getItemPrice(int, int)&#xa;" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontStyle=0" parent="TEOQJaO2EMKdjx9Uq9Gn-12" vertex="1">
-          <mxGeometry y="202" width="200" height="118" as="geometry" />
+        <mxCell id="LPH6ivnVHNcIVXCUG9c9-10" value="int getMilesTravelled() const&#xa;&#xa;int getMilesToNextDest() const&#xa;&#xa;int getMilesRemaining() const&#xa;" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="zkfFHV4jXpPFQw0GAbJ--13" vertex="1">
+          <mxGeometry y="88" width="180" height="82" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
