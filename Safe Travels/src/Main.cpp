@@ -18,8 +18,38 @@
 #include "Validation.h"
 #include "Merchant.h"
 
+//Problems with deep copying the inventory pointer (using overloaded assingment operator). Need to work on
+//this in FamilyMember.h.
+
+/*
+void deleteMember(std::vector<FamilyMember> &familyMember, int deleteAtIndex)
+{
+	std::vector<FamilyMember> newFamilyMember{};
+	for (int i = 0; i < familyMember.size(); i++)
+	{
+		if (i != deleteAtIndex)
+			newFamilyMember.push_back(familyMember[i]);
+	}
+
+	familyMember = newFamilyMember;
+}
+*/
 int main()
 {
+/*
+	Menu menu;
+	Inventory inventory;
+	std::vector<FamilyMember> familyMember{ menu.createFamilyMembers(inventory) };
+
+	menu.displayFamilyMembers(familyMember);
+
+	deleteMember(familyMember, 0);
+
+//	familyMember.erase(familyMember.begin() + 1);
+	std::cout << "NEW\n\n\n\n";
+	menu.displayFamilyMembers(familyMember);
+*/
+	
 	//---The following is only a short test for of the game to make sure components will work together correctly---//
 
 	srand((unsigned)time(NULL)); //Used for random numbers in the random header file
@@ -33,7 +63,8 @@ int main()
 	WagonLeader wagonLeader{ menu.createWagonLeader(inventory) };
 	std::vector<FamilyMember> familyMember{ menu.createFamilyMembers(inventory) };
 
-	while (true)
+	int familyMembersDead{ 0 };
+	while (familyMembersDead < 4 || journey.getMilesRemaining > 0)
 	{
 		menu.displayGameStats(date, journey);	 //Print the date and overall game mileage
 		wagonLeader.displayInventory(inventory); //Print the player's inventory
@@ -65,7 +96,7 @@ int main()
 				if (familyMember[i].isDead())
 				{
 					menu.displayDeadMember(familyMember[i]);
-					//familyMember.erase(familyMember.begin() + i);
+					familyMembersDead++;
 				}
 			}
 			break;
@@ -74,4 +105,5 @@ int main()
 			break;
 		}
 	}
+	*/
 }

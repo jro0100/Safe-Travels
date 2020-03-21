@@ -13,6 +13,26 @@ public:
 	FamilyMember(const std::string &name, Inventory &inventory)
 		: Player{ name, inventory }, m_health{ 100 }, m_sickWeight{ 0 }, m_appetite{ 2 } {}
 
+	//---------NEED TO WORK ON----------//
+/*	void deepCopy(const FamilyMember &familyMember)
+	{
+
+		if (familyMember.m_inventory)
+		{
+			m_inventory->setFoodCount(familyMember.m_inventory->getFoodCount());
+			m_inventory->setMedicineCount(familyMember.m_inventory->getMedicineCount());
+			m_inventory->setWagonPartsCount(familyMember.m_inventory->getWagonPartsCount());
+		}
+	}
+
+	FamilyMember& operator=(const FamilyMember &familyMember)
+	{
+			return *this;
+
+		deepCopy(familyMember);
+		return *this;
+	}*/
+
 	//-------------Altering Functions----------//
 	//Makes the Family Member sick. If the family member is already sick, they get sicker
 	void aquireSickness();

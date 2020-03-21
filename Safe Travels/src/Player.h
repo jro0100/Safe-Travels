@@ -11,7 +11,7 @@ public:
 	//-------Constructor-------//
 	Player(const std::string &name, Inventory &inventory) : m_name{ name }, m_inventory{ &inventory }{}
 	//-------Virtual Deconstructor------//
-	virtual ~Player() {}
+	//virtual ~Player() {}
 
 	virtual std::string getName() const = 0;
 };
