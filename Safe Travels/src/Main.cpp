@@ -64,13 +64,14 @@ int main()
 	std::vector<FamilyMember> familyMember{ menu.createFamilyMembers(inventory) };
 
 	int familyMembersDead{ 0 };
-	while (familyMembersDead < 4 || journey.getMilesRemaining > 0)
+	while (familyMembersDead < 4 || journey.getMilesRemaining() > 0)
 	{
 		menu.displayGameStats(date, journey);	 //Print the date and overall game mileage
 		wagonLeader.displayInventory(inventory); //Print the player's inventory
 		menu.displayGameOptions(journey);		 //Print the options the player can make each round
 
 		static int choice;
+
 		choice = (journey.getMilesToNextDest() == 100) ? getNumChoice(1, 4) : getNumChoice(1, 3);
 
 		system("cls"); //Clear the screen
@@ -96,7 +97,7 @@ int main()
 				if (familyMember[i].isDead())
 				{
 					menu.displayDeadMember(familyMember[i]);
-					familyMembersDead++;
+				//	familyMembersDead++;
 				}
 			}
 			break;
@@ -105,5 +106,5 @@ int main()
 			break;
 		}
 	}
-	*/
+	
 }

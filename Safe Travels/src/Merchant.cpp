@@ -275,7 +275,7 @@ void Merchant::printMerchantsInventory()
 //Randomly resets the merchants inventory. This simulates a different merchant at each stop
 void Merchant::setRandomInventory()
 {
-	m_inventory.setFoodCount(getRandomNum(0, 15));
-	m_inventory.setMedicineCount(getRandomNum(0, 8));
-    m_inventory.setWagonPartsCount(getRandomNum(0, 20));
+	m_inventory.setFoodCount(getRandomNum(50, 80));
+	m_inventory.setMedicineCount(getRandomNum(50, 80));
+    m_inventory.setWagonPartsCount(getRandomNum(2, 5));
 }

@@ -58,7 +58,9 @@ void Menu::aboutTheGame()
 //Creates the wagon leader (main player) of the game
 WagonLeader Menu::createWagonLeader(Inventory &inventory)
 {
-	std::cout << "Welcome traveler, enter your name --> ";
+	std::cout << "\t\t   Create Family\n"
+		<< "\t\t-------------------\n\n"
+		<< "Welcome traveler!\nEnter your name --> ";
 	std::string name;
 	std::cin >> name;
 	return WagonLeader{ name, inventory };
@@ -72,13 +74,13 @@ std::vector<FamilyMember> Menu::createFamilyMembers(Inventory &inventory)
 	for (int i = 0; i < 4; i++)
 	{
 		if (i == 0)
-			std::cout << "What is your wife's name? --> ";
+			std::cout << "Enter your wife's name? --> ";
 		else if (i == 1)
-			std::cout << "What is your 6 year old son's name? --> ";
+			std::cout << "Enter your son's name(Age 6)? --> ";
 		else if (i == 2)
-			std::cout << "What is your 10 year old daughter's name? --> ";
+			std::cout << "Enter your daughter's name(Age 10)? --> ";
 		else if (i == 3)
-			std::cout << "What is your 13 year old son's name? --> ";
+			std::cout << "Enter your son's name(Age 13)? --> ";
 
 		std::cin >> name;
 		familyMember.push_back(FamilyMember{ name, inventory });
@@ -98,10 +100,10 @@ void Menu::displayFamilyMembers(const std::vector<FamilyMember> familyMember)
 	
 	for (int i = 0; i < familyMember.size() ; i++)
 	{
-		std::cout << "Name --> " << familyMember[i].getName() << "\n"
-			<< "Health --> " << familyMember[i].getHealth() << "\n"
-			<< "Appetite --> " << familyMember[i].getAppetite() << "\n"
-			<< "Sick Level --> " << familyMember[i].getSickWeight() << "\n\n";
+		std::cout << "Name: " << familyMember[i].getName() << "\n"
+			<< "Health: " << familyMember[i].getHealth() << "\n"
+			<< "Appetite: " << familyMember[i].getAppetite() << "\n"
+			<< "Sick Level: " << familyMember[i].getSickWeight() << "\n\n";
 	}
 	pauseScreen();
 }
@@ -128,7 +130,7 @@ void Menu::displayGameStats(const Date &date, const Journey &journey) const
 		<< "\t----------------------------\n"
 		<<"\tDate: " << date << "\n"
 		<< "\tTotal Miles Travelled: " << journey.getMilesTravelled() << "\n"
-		<< "\tMiles Remaining --> " << journey.getMilesRemaining() << "\n"
+		<< "\tMiles Remaining: " << journey.getMilesRemaining() << "\n"
 		<< "\tMiles to next Destination: " << journey.getMilesToNextDest() << "\n\n";
 }
 

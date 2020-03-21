@@ -8,7 +8,7 @@ private:
 	int m_wagonPartsCount; //Holds the wagon parts supply
 public:
 	//---Constructor--- used with the Player class
-	Inventory() : m_foodCount{ 0 }, m_medicineCount{ 1 }, m_wagonPartsCount{ 0 } {}
+	Inventory() : m_foodCount{ 0 }, m_medicineCount{ 0 }, m_wagonPartsCount{ 0 } {}
 	//---Constructor--- used for the Merchant class
 	Inventory(int foodCount, int medicineCount, int wagonPartsCount) 
 		: m_foodCount{ foodCount }, m_medicineCount{ medicineCount }, m_wagonPartsCount{ wagonPartsCount } {}

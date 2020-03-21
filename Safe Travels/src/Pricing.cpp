@@ -3,13 +3,13 @@
 //Randomly resets all buying and selling prices.
 void Pricing::setRandomPrices()
 {
-	m_buyFoodPrice = getRandomNum(10, 20);
-	m_buyMedicinePrice = getRandomNum(10, 20);
-	m_buyWagonPartsPrice = getRandomNum(10, 20);
+	m_buyFoodPrice = getRandomNum(2, 5);
+	m_buyMedicinePrice = getRandomNum(2, 5);
+	m_buyWagonPartsPrice = getRandomNum(2, 5);
 
-	m_sellFoodPrice = getRandomNum(30, 60);
-	m_sellMedicinePrice = getRandomNum(30, 60);
-	m_sellWagonPartsPrice = getRandomNum(30, 60);
+	m_sellFoodPrice = getRandomNum(5, 10);
+	m_sellMedicinePrice = getRandomNum(5, 10);
+	m_sellWagonPartsPrice = getRandomNum(1, 5);
 }
 
 //Prints all buying prices. In this case, merchant is buying and player is selling.
