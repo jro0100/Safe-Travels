@@ -20,5 +20,5 @@ public:
 	virtual std::string getName() const final override { return m_name; }
 
 	//Displays the inventory of the family
-	void displayInventory(const Inventory &inventory);
+	void displayInventory(const Inventory &inventory) const;
 };

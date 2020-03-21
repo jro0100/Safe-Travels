@@ -11,7 +11,7 @@ int WagonLeader::getCashOnHand() const { return m_cashOnHand; }
 
 
 //Displays the current inventory.
-void WagonLeader::displayInventory(const Inventory &inventory)
+void WagonLeader::displayInventory(const Inventory &inventory) const
 {
 	std::cout << "\t\tYour Inventory\n"
 		<< "\t-----------------------------\n"
