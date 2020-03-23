@@ -17,6 +17,7 @@
 #include "Random.h"		  //Tested
 #include "Validation.h"
 #include "Merchant.h"
+#include "Exploration.h"
 
 //Problems with deep copying the inventory pointer (using overloaded assingment operator). Need to work on
 //this in FamilyMember.h.
@@ -55,6 +56,7 @@ int main()
 	srand((unsigned)time(NULL)); //Used for random numbers in the random header file
 	Menu menu;
 	Journey journey;
+	Exploration exploration;
 	Date date;
 	Inventory inventory;
 	Merchant merchant;
@@ -82,9 +84,8 @@ int main()
 			menu.displayFamilyMembers(familyMember);
 			break;
 		case(2): //Stop and explore
-			std::cout << "TBD";
-			//Need to create good/bad outcomes of exploring. Perhaps an Exploration class
-			//Bad outcomes of the exploration class can be based off the month of the year.
+			//Get a random event
+			exploration.getRandomEvent(inventory, wagonLeader);
 			break;
 		case(3): //Continue on with journey
 			date.increaseDate();
@@ -100,6 +101,9 @@ int main()
 				//	familyMembersDead++;
 				}
 			}
+			//Get a random event
+			exploration.getRandomEvent(inventory, wagonLeader);
+
 			break;
 		case(4):
 			merchant.interactWithMerchant(journey, inventory, wagonLeader);
