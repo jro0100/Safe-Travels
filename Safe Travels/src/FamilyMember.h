@@ -37,6 +37,9 @@ public:
 	//Makes the Family Member sick. If the family member is already sick, they get sicker
 	void aquireSickness();
 
+	//Decreases the family member's sickweight
+	void changeSickness(int sickWeight);
+
 	//Makes the family member less sick. Uses medicine from the inventory
 	void getBetter();
 
@@ -51,6 +54,9 @@ public:
 
 	//Decreases the family member's health
 	void decreaseHealth();
+
+	//Increases the family member's health
+	void changeHealth(int health);
 
 	//------------Function Member Getters-----------//
 	int getSickWeight() const { return m_sickWeight; }

@@ -85,7 +85,7 @@ int main()
 			break;
 		case(2): //Stop and explore
 			//Get a random event
-			exploration.getRandomEvent(inventory, wagonLeader);
+			exploration.getRandomEvent(inventory, wagonLeader, familyMember);
 			break;
 		case(3): //Continue on with journey
 			date.increaseDate();
@@ -101,9 +101,6 @@ int main()
 				//	familyMembersDead++;
 				}
 			}
-			//Get a random event
-			exploration.getRandomEvent(inventory, wagonLeader);
-
 			break;
 		case(4):
 			merchant.interactWithMerchant(journey, inventory, wagonLeader);

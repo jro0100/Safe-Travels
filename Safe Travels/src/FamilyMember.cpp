@@ -6,6 +6,12 @@ void FamilyMember::aquireSickness()
 	m_sickWeight += getRandomNum(0, 2);
 }
 
+//Decreases the family member's sickweight
+void FamilyMember::changeSickness(int sickWeight)
+{
+	m_sickWeight += sickWeight;
+}
+
 //Makes the family member less sick. Uses medicine from the inventory
 void FamilyMember::getBetter()
 {
@@ -58,6 +64,15 @@ void FamilyMember::decreaseHealth()
 
 	if (m_health < 0)
 		m_health = 0;
+}
+
+//Increases the family member's health
+void FamilyMember::changeHealth(int health)
+{
+	m_health += health;
+
+	if (m_health > 100)
+		m_health = 100;
 }
 
 void FamilyMember::runThroughRound()
