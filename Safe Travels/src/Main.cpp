@@ -1,114 +1,41 @@
-//-----------------------------SAFE TRAVELS---------------------//
+//-------------------SAFE TRAVELS------------------//
 
 //Game designed on 2/29/2020
 //Coding began on 3/1/2020
 
-//Update (3/7/20)  - Added and tested the Menu class.
-//Update (3/12/20) - Updated the Merchant class
+#include "Game.h"
 
-#include <iostream>
-#include <string>
-#include <vector>
-#include "Player.h"		  //Tested
-#include "FamilyMember.h" //Tested
-#include "Date.h"		  //Tested
-#include "Journey.h"	  //Tested
-#include "Menu.h"		  //Tested
-#include "Random.h"		  //Tested
-#include "Validation.h"
-#include "Merchant.h"
-#include "Exploration.h"
-
-//Problems with deep copying the inventory pointer (using overloaded assingment operator). Need to work on
-//this in FamilyMember.h.
-
-/*
-void deleteMember(std::vector<FamilyMember> &familyMember, int deleteAtIndex)
-{
-	std::vector<FamilyMember> newFamilyMember{};
-	for (int i = 0; i < familyMember.size(); i++)
-	{
-		if (i != deleteAtIndex)
-			newFamilyMember.push_back(familyMember[i]);
-	}
-
-	familyMember = newFamilyMember;
-}
-*/
 int main()
 {
+
+	Game game;
+	game.flow();
+}
+
 /*
-	Menu menu;
-	Inventory inventory;
-	std::vector<FamilyMember> familyMember{ menu.createFamilyMembers(inventory) };
+	TODO:
 
-	menu.displayFamilyMembers(familyMember);
+	Having problems with deep copying the inventory pointer (using overloaded assingment operator). 
+	Need to work on this in FamilyMember.h.
 
-	deleteMember(familyMember, 0);
+	Two options for implemenation in deleting a familyMember from the vector:
 
-//	familyMember.erase(familyMember.begin() + 1);
-	std::cout << "NEW\n\n\n\n";
-	menu.displayFamilyMembers(familyMember);
-*/
-	
-	//---The following is only a short test for of the game to make sure components will work together correctly---//
-
-	srand((unsigned)time(NULL)); //Used for random numbers in the random header file
-	Menu menu;
-	Journey journey;
-	Exploration exploration;
-	Date date;
-	Inventory inventory;
-	Merchant merchant;
-
-	menu.welcomeMenu();
-	WagonLeader wagonLeader{ menu.createWagonLeader(inventory) };
-	std::vector<FamilyMember> familyMember{ menu.createFamilyMembers(inventory) };
-
-	int familyMembersDead{ 0 };
-	while (familyMembersDead < 4 || journey.getMilesRemaining() > 0)
-	{
-		menu.displayGameStats(date, journey);	 //Print the date and overall game mileage
-		wagonLeader.displayInventory(inventory); //Print the player's inventory	
-		menu.displayGameOptions(journey);		 //Print the options the player can make each round
-
-		static int choice;
-
-		choice = (journey.getMilesToNextDest() == 100) ? getNumChoice(1, 4) : getNumChoice(1, 3);
-
-		system("cls"); //Clear the screen
+	1.) Design my own function
 		
-		switch (choice)
+		void deleteMember(std::vector<FamilyMember> &familyMember, int deleteAtIndex)
 		{
-		case(1): //View family stats
-			menu.displayFamilyMembers(familyMember);
-			break;
-		case(2): //Stop and explore
-			//Get a random event
-			if (journey.checkPlayerMoved())
-				exploration.getRandomEvent(inventory, wagonLeader, familyMember);
-			else	
-				exploration.areaAlreadyExplored();
-			break;
-		case(3): //Continue on with journey
-			date.increaseDate();
-			journey.increaseMilesTravelled(getRandomNum(20, 50));
-
+			std::vector<FamilyMember> newFamilyMember{};
 			for (int i = 0; i < familyMember.size(); i++)
 			{
-				//Runs through the round for 
-				familyMember[i].runThroughRound();
-				if (familyMember[i].isDead())
-				{
-					menu.displayDeadMember(familyMember[i]);
-				//	familyMembersDead++;
-				}
+				if (i != deleteAtIndex)
+					newFamilyMember.push_back(familyMember[i]);
 			}
-			break;
-		case(4):
-			merchant.interactWithMerchant(journey, inventory, wagonLeader);
-			break;
-		}
-	}
 	
-}
+			familyMember = newFamilyMember;
+		}
+
+	2.) Use the std::vector's erase member function. Not sure how affetive this will be. Have to test it.
+	
+		familyMember.erase(familyMember.begin() + 1);
+
+*/
