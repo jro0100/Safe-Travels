@@ -76,7 +76,8 @@ WagonLeader Menu::createWagonLeader(Inventory &inventory)
 		<< "\t\t-------------------\n\n"
 		<< "Welcome traveler!\nEnter your name --> ";
 	std::string name;
-	std::cin >> name;
+	std::cin.ignore(32767, '\n');
+	std::getline(std::cin, name);
 	return WagonLeader{ name, inventory };
 }
 
@@ -96,7 +97,7 @@ std::vector<FamilyMember> Menu::createFamilyMembers(Inventory &inventory)
 		else if (i == 3)
 			std::cout << "Enter your son's name(Age 13)? --> ";
 
-		std::cin >> name;
+		std::getline(std::cin, name);
 		familyMember.push_back(FamilyMember{ name, inventory });
 	}
 
