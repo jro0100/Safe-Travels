@@ -13,11 +13,11 @@ void Menu::welcomeMenu()
 	//The loop will terminate when the user wants to start the game (by entering 1)
 	while (choice != 1)
 	{
-		std::cout << "\t\tSAFE TRAVELS\n"
-			<< "\t---------------------------\n"
+		std::cout << "\t\t\tSAFE TRAVELS\n"
+			<< "\t\t     ------------------\n\n"
 			<< "(1) Start the Game!\n"
-			<< "(2) Rules\n"
-			<< "(3) About the Game\n";
+			<< "(2) How to Play\n"
+			<< "(3) About the Game\n\n";
 
 		//Gets validated input from the user before using it
 		choice = getNumChoice(1, 3);
@@ -38,9 +38,21 @@ void Menu::welcomeMenu()
 void Menu::showRules()
 {
 	system("cls");
-	std::cout << "\t\tGame Rules\n"
-		<< "\t--------------------------\n"
-		<< "The rules are simple... To Be Updated\n";
+	std::cout << "\t\t\tHow to Play\n"
+		<< "\t\t     -----------------\n\n"
+		<< "1.) You are travelling "
+		<< "across the country in a wagon.\n\n2.) You, the wagon leader, "
+		<< "make all decisions in the game.\n\n3.) You have four family members: "
+		<< "your wife and three kids.\n\n4.) Your family members each have health, appetite, "
+		<< "and sick-\n    weight. The larger the sick-weight, the larger the\n    appetite, "
+		<< "which leads to higher food consumption from that    family member. Health is also decreased each"
+		<< " round based      on the family members sick-weight.\n\n"
+		<< "5.) You must make is across the country without your family\n    dying to win the game.\n\n"
+		<< "6.) If all members of your family die before your journey\n    ends, you lose the game.\n\n"
+		<< "7.) Every 100 miles of travel, you will reach a landmark. Upon    reaching this landmark, "
+		<< "you can buy from or sell to the\n    merchant. You must keep a well-stocked inventory "
+		<< "to keep\n    your family alive.\n\n"
+		<< "Good Luck!\n\n";
 	pauseScreen();
 }
 
@@ -49,9 +61,11 @@ void Menu::showRules()
 void Menu::aboutTheGame()
 {
 	system("cls");
-	std::cout << "\t\tAbout the Game\n"
-		<< "\t---------------------------\n"
-		<< "The game is simple... To Be Updated\n";
+	std::cout << "\t\t\tAbout the Game\n"
+		<< "\t\t     --------------------\n\n"
+		<< "Author: jro0100\n\nGame Started: February 29, 2020\nGame Finished: Date Not Yet Known\n\n"
+		<< "This is meant to be a spin-off of the popular 80's game\ncalled \"The Oregon Trail\"\n\n"
+		<< "Enjoy!\n\n";
 	pauseScreen();
 }
 
@@ -127,26 +141,26 @@ void Menu::displayGameStats(const Date &date, const Journey &journey) const
 {
 	//Print the date, total miles travelled, miles reamaining, and miles to next destination
 	std::cout << "\t\tProgression\n"
-		<< "\t----------------------------\n"
+		<< "\t---------------------------\n"
 		<<"\tDate: " << date << "\n"
-		<< "\tTotal Miles Travelled: " << journey.getMilesTravelled() << "\n"
+		<< "\tMiles Travelled: " << journey.getMilesTravelled() << "\n"
 		<< "\tMiles Remaining: " << journey.getMilesRemaining() << "\n"
-		<< "\tMiles to next Destination: " << journey.getMilesToNextDest() << "\n\n";
+		<< "\tMiles to next Landmark: " << journey.getMilesToNextDest() << "\n\n";
 }
 
 //Displays the options for the player each round while the game is running
 void Menu::displayGameOptions(const Journey &journey) const 
 {	
 		std::cout << "\t\t   Options\n"
-			<< "\t   ---------------------\n"
-			<< "(1) View family stats\n"
-			<< "(2) Stop and explore\n"
-			<< "(3) Continue on with journey\n";
+			<< "\t----------------------------\n"
+			<< "\t(1) View family stats\n"
+			<< "\t(2) Stop and explore\n"
+			<< "\t(3) Continue on with journey\n";
 	
 	//If the next destination has been reached, the player can see the merchant.
 	//A destination will be reached every 100 miles
 	if (journey.getMilesToNextDest() == 100)
-		std::cout << "(4) Interact with the merchant\n\n";
+		std::cout << "\t(4) Interact with the merchant\n\n";
 }
 
 //Temporarily pauses the screen for the player

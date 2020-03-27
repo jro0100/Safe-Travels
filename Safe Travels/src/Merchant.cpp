@@ -21,7 +21,7 @@ void Merchant::interactWithMerchant(const Journey &journey, Inventory &inventory
 		//Display the player's inventory
 		wagonLeader.displayInventory(inventory);
 
-		std::cout << "Merchant: What are yah lookin to do?\n" << "(1) Buy\n(2) Sell\n(3) Exit\n";
+		std::cout << "\tMerchant: What are yah lookin to do?\n" << "\t(1) Buy\n\t(2) Sell\n\t(3) Exit\n\n";
 
 		//Call getNumChoice from the Validation.h file. This will return a number between 1 and 3.
 		int choice{};
@@ -37,7 +37,9 @@ void Merchant::interactWithMerchant(const Journey &journey, Inventory &inventory
 			break; //This will cause the loop to terminate, ending the interaction with the merchant
 	}
 	//At this point, the user has chosen to exit interaction with the merchant. 
-	std::cout << "\nMerchant: Thank you! Come back soon.\n\nPress any key to continue";
+	std::cout << "\t\tLeaving Merchant\n"
+		<< "\t   --------------------------\n\n"
+		<< "Merchant: Thank you! Come back soon.\n\nPress any key to continue";
 	std::cin.get();
 	std::cin.get();
 	system("cls");
@@ -60,7 +62,7 @@ void Merchant::buyOrSellItems(Inventory &inventory, WagonLeader &wagonLeader, bu
 
 	wagonLeader.displayInventory(inventory); //Display the player's inventory
 
-	std::cout << "Choose one of the following:\n(1) Food\n(2) Medicine\n(3) Wagon Parts\n(4) Exit\n";
+	std::cout << "\tChoose one of the following:\n\t(1) Food\n\t(2) Medicine\n\t(3) Wagon Parts\n\t(4) Exit\n\n";
 
 	//Gets and validates a number between 1 and 4 from the player and casts it to an enum
 	buySellItems choice = static_cast<buySellItems>(getNumChoice(1, 4));
@@ -252,9 +254,9 @@ void Merchant::printMerchantsInventory()
 {
 	std::cout << "\t\tMerchants Inventory\n"
 		<< "\t  ---------------------------\n"
-		<< "Food: " << m_inventory.getFoodCount() << " lb(s)\n"
-		<< "Medicine: " << m_inventory.getMedicineCount() << " pill(s) \n"
-		<< "Wagon Parts: " << m_inventory.getWagonPartsCount() << " part(s)\n\n";
+		<< "\tFood: " << m_inventory.getFoodCount() << " lb(s)\n"
+		<< "\tMedicine: " << m_inventory.getMedicineCount() << " pill(s) \n"
+		<< "\tWagon Parts: " << m_inventory.getWagonPartsCount() << " part(s)\n\n";
 }
 
 //Randomly resets the merchants inventory. This simulates a different merchant at each stop

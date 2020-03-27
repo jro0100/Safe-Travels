@@ -15,8 +15,8 @@ void WagonLeader::displayInventory(const Inventory &inventory) const
 {
 	std::cout << "\t\tYour Inventory\n"
 		<< "\t-----------------------------\n"
-		<< "Food: " << inventory.getFoodCount() << " lbs\n"
-		<< "Medicine: " << inventory.getMedicineCount() << " pills\n"
-		<< "Wagon Parts: " << inventory.getWagonPartsCount() << " parts\n"
-		<< "Cash On Hand: $" << getCashOnHand() << "\n\n";
+		<< "\tFood: " << inventory.getFoodCount() << " lbs\n"
+		<< "\tMedicine: " << inventory.getMedicineCount() << " pills\n"
+		<< "\tWagon Parts: " << inventory.getWagonPartsCount() << " parts\n"
+		<< "\tCash on Hand: $" << getCashOnHand() << "\n\n";
 }
