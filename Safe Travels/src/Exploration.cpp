@@ -14,7 +14,7 @@ void familyHealthChange(std::vector<FamilyMember> &familyMember, int healthAdded
 
 std::string getDiseaseName()
 {
-	int randomDiseaseName{ getRandomNum(1, 10) };
+	int randomDiseaseName{ getRandomNum(1, 5) };
 
 	switch (randomDiseaseName)
 	{
@@ -45,7 +45,7 @@ void wagonPartsAvailability(Inventory &inventory, WagonLeader &wagonLeader, cons
 		std::cout << "Wagon Parts Used: " << wagonPartsNeeded
 			<< "\nWagon Parts Remaining: " << inventory.getWagonPartsCount() << "\n\n";
 	}
-	else if (wagonLeader.getCashOnHand() < 150)
+	else if (wagonLeader.getCashOnHand() < (wagonPartsNeeded * 100))
 	{
 		int foodLost{ getRandomNum(inventory.getFoodCount() * 0.3, inventory.getFoodCount() * 0.4) };
 		int medicineLost{ getRandomNum(inventory.getFoodCount() * 0.3, inventory.getMedicineCount() * 0.4) };
@@ -62,11 +62,12 @@ void wagonPartsAvailability(Inventory &inventory, WagonLeader &wagonLeader, cons
 	}
 	else
 	{
-		wagonLeader.changeCashOnHand(-150);
+		int costForFix{ wagonPartsNeeded * 100 };
+		wagonLeader.changeCashOnHand(-costForFix);
 
 		std::cout << "Oops, you do not have enough wagon parts to fix this.\n\n"
-			<< "\nThis will cost you 150 dollars.\n"
-			<< "Cash Lost: 150 dollars\n"
+			<< "\nThis will cost you " << costForFix << " dollars\n"
+			<< "Cash Lost: " << costForFix << "\n"
 			<< "Cash Remaining: " << wagonLeader.getCashOnHand() << "\n\n";
 	}
 }
@@ -164,16 +165,27 @@ void Exploration::getBadEvent(Inventory &inventory, WagonLeader &wagonLeader, st
 	{
 	case(BAD_WEATHER):
 	{
-		std::cout << "Bad Weather\n\n"
-			<< "NEED TO FINISH";
-		//TODO
+		int foodLost{ getRandomNum(inventory.getFoodCount() * 0.05, inventory.getFoodCount() * 0.2) };
+		int medicineLost{ getRandomNum(inventory.getFoodCount() * 0.05, inventory.getMedicineCount() * 0.2) };
+		int wagonPartsNeeded{ 1 };
+
+		inventory.changeFoodCount(-foodLost);
+		inventory.changeMedicineCount(-medicineLost);
+
+		std::cout << "Bad Weather steers your exploration off course.\n"
+			<< "Much of you time is spent navigating back to the wagon.\n"
+			<< "When you return, your wagon is broken from the storm.\n\n"
+			<< "Food Lost: " << foodLost
+			<< "\nMedicine Lost: " << medicineLost << "\n\n";
+
+		wagonPartsAvailability(inventory, wagonLeader, wagonPartsNeeded);
 		break;
 	}
 	case(GET_ROBBED):
 	{
 		int foodLost{ getRandomNum(inventory.getFoodCount() * 0.05, inventory.getFoodCount() * 0.2) };
-		int medicineLost{ getRandomNum(inventory.getFoodCount() * 0.05, inventory.getMedicineCount() * 0.2) };
-		int wagonPartsLost{ getRandomNum(inventory.getFoodCount() * 0.05, inventory.getWagonPartsCount() * 0.2) };
+		int medicineLost{ getRandomNum(inventory.getMedicineCount() * 0.05, inventory.getMedicineCount() * 0.2) };
+		int wagonPartsLost{ getRandomNum(inventory.getWagonPartsCount() * 0.05, inventory.getWagonPartsCount() * 0.2) };
 
 		inventory.changeFoodCount(-foodLost);
 		inventory.changeMedicineCount(-medicineLost);
@@ -192,11 +204,11 @@ void Exploration::getBadEvent(Inventory &inventory, WagonLeader &wagonLeader, st
 		int healthDeducted{ getRandomNum(2, 10) };
 		int sickWeightAdded{ 1 };
 
-		familyHealthChange(familyMember, -healthDeducted, -sickWeightAdded);
+		familyHealthChange(familyMember, -healthDeducted, sickWeightAdded);
 
-		std::cout << "A disease named " << getDiseaseName() << " has infected your family.\n"
+		std::cout << "A disease named " << getDiseaseName() << " has infected your family.\n\n"
 			<< "Each family member loses " << healthDeducted << " health points.\n"
-			<< "Each family member gains " << sickWeightAdded << "sick weight point\n\n";
+			<< "Each family member gains " << sickWeightAdded << " sick weight point\n\n";
 		break;
 	}
 	case(WAGON_BREAKS):
@@ -209,6 +221,19 @@ void Exploration::getBadEvent(Inventory &inventory, WagonLeader &wagonLeader, st
 		break;
 	}
 	}
+	std::cout << "Press any key to continue";
+	std::cin.ignore(32767, '\n');
+	std::cin.get();
+	system("cls");
+}
+
+void Exploration::areaAlreadyExplored() const
+{
+	std::cout << "\t\tExploration\n"
+		<< "\t   ---------------------\n\n"
+		<< "This area has already been explored.\n"
+		<< "Travel to a new area and try again.\n\n";
+
 	std::cout << "Press any key to continue";
 	std::cin.ignore(32767, '\n');
 	std::cin.get();

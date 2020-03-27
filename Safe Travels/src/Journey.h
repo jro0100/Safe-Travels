@@ -14,6 +14,13 @@ public:
 	//Increases the miles travelled for the week
 	void increaseMilesTravelled(int miles);
 
+	/*
+	Checks if the player has moved. Used in multiple cases such as checking whether
+	the merchant should reset his prices and if the area is new and the player can
+	explore it.
+	*/
+	bool checkPlayerMoved() const;
+
 	//----------Member Function Getters---------//
 	int getMilesTravelled()  const { return m_totalMilesTravelled; }
 	int getMilesRemaining()  const { return m_milesRemaining; }

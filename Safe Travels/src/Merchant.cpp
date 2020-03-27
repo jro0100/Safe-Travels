@@ -3,32 +3,17 @@
 //First function called when the player encounters the merchant.
 void Merchant::interactWithMerchant(const Journey &journey, Inventory &inventory, WagonLeader &wagonLeader)
 {
-	//Gets compared to actual miles travelled by the player to determine if the player has moved since last
-	//visiting the merchant.
-	static int milesTravelled = { -1 };
-
 	/*
 		Without the below if statement comparison, the user would be able to keep visiting the merchant 
 		and the merchant's pricing will change each time without the player having to travel
-
-		How it Works: If the static variable "milesTravelled" is not equal to the actual miles travelled
-					  by the player, then that means the player has moved. It then randomly resets the
-					  merchant's pricing and inventory and then sets the milesTravelled variable to the
-					  actual miles travelled. Now if the player exits interacting with the merchant and
-					  returns, this block will not be run, therefore, not running the random reset functions
-					  and not changing the anything.
 	*/
-	if (milesTravelled != journey.getMilesTravelled())
+	if (journey.checkPlayerMoved())
 	{
 		//Randomly reset the merchants inventory
 		setRandomInventory();
 
 		//Randomly reset the merchants pricing
 		m_pricing.setRandomPrices();
-
-		//Set the static variable to the actual miles travelled so if the player comes back without travelling,
-		//this if block will not be executed and the merchant's prices and inventory will not change.
-		milesTravelled = journey.getMilesTravelled();
 	}
 
 	while (true)

@@ -25,3 +25,21 @@ void Journey::increaseMilesTravelled(int miles)
 	if (m_milesToNextDest < 0)
 		m_milesToNextDest = 100;
 }
+
+/*
+	Checks if the player has moved. Used in multiple cases such as checking whether
+	the merchant should reset his prices and if the area is new and the player can
+	explore it.
+*/
+
+bool Journey::checkPlayerMoved() const
+{
+	static int loggedMilesTravelled{ -1 };
+
+	if (loggedMilesTravelled != m_totalMilesTravelled)
+	{
+		loggedMilesTravelled = m_totalMilesTravelled;
+		return true;
+	}
+	return false;
+}

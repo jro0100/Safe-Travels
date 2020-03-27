@@ -37,4 +37,6 @@ public:
 	void getRandomEvent(Inventory &inventory, WagonLeader &wagonLeader, std::vector <FamilyMember> &familyMember);
 	void getGoodEvent(Inventory &inventory, WagonLeader &wagonLeader, std::vector <FamilyMember> &familyMember);
 	void getBadEvent(Inventory &inventory, WagonLeader &wagonLeader, std::vector <FamilyMember> &familyMember);
+
+	void areaAlreadyExplored() const;
 };

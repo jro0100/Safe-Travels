@@ -69,7 +69,7 @@ int main()
 	while (familyMembersDead < 4 || journey.getMilesRemaining() > 0)
 	{
 		menu.displayGameStats(date, journey);	 //Print the date and overall game mileage
-		wagonLeader.displayInventory(inventory); //Print the player's inventory
+		wagonLeader.displayInventory(inventory); //Print the player's inventory	
 		menu.displayGameOptions(journey);		 //Print the options the player can make each round
 
 		static int choice;
@@ -85,7 +85,10 @@ int main()
 			break;
 		case(2): //Stop and explore
 			//Get a random event
-			exploration.getRandomEvent(inventory, wagonLeader, familyMember);
+			if (journey.checkPlayerMoved())
+				exploration.getRandomEvent(inventory, wagonLeader, familyMember);
+			else	
+				exploration.areaAlreadyExplored();
 			break;
 		case(3): //Continue on with journey
 			date.increaseDate();
