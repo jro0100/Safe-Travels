@@ -3,13 +3,16 @@
 //Makes the Family Member sick. If the family member is already sick, they get sicker
 void FamilyMember::aquireSickness()
 {
-	m_sickWeight += getRandomNum(0, 2);
+	changeSickness(getRandomNum(0, 2));
 }
 
 //Decreases the family member's sickweight
 void FamilyMember::changeSickness(int sickWeight)
 {
 	m_sickWeight += sickWeight;
+
+	if (m_sickWeight > 5)
+		m_sickWeight = 5;
 }
 
 //Makes the family member less sick. Uses medicine from the inventory
