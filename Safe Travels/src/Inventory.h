@@ -18,7 +18,6 @@ public:
 	//Functions to alter the food
 	void setFoodCount(int count); //Used only by the merchant
 	void changeFoodCount(int count);
-	void useFood(); //m_medicinePartsCount--;
 
 	//Functions to alter the medicine
 	void setMedicineCount(int count); //Used only by the merchant
@@ -28,7 +27,6 @@ public:
 	//Functions to alter the wagon parts
 	void setWagonPartsCount(int count); //Used only by the merchant
 	void changeWagonPartsCount(int count);
-	void useWagonPart(); //m_wagonPartsCount--;
 
 	//Functions to alter the wagon parts
 	void setSuperPillCount(int count); //Used only by the merchant

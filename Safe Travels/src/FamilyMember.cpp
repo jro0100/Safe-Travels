@@ -41,7 +41,7 @@ void FamilyMember::getBetter()
 //Checks if the family member has died
 bool FamilyMember::isDead() const
 {
-	return (m_health <= 0);
+	return (m_health == 0);
 }
 
 //Increases the appetite of the family member
@@ -89,4 +89,5 @@ void FamilyMember::runThroughRound()
 	getBetter();
 	increaseAppetite();
 	decreaseHealth();
+	m_inventory->changeFoodCount(-m_appetite);
 }

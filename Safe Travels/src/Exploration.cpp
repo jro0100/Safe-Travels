@@ -1,13 +1,13 @@
 #include "Exploration.h"
 
-void familyHealthChange(std::vector<FamilyMember> &familyMember, int healthAdded, int sickWeightAdded)
+void familyHealthChange(std::vector<FamilyMember> &familyMember, int healthAdded, int sickWeight)
 {
 	for (int i = 0; i < familyMember.size(); i++)
 	{
 		if (familyMember[i].getHealth() > 0)
 		{
 			familyMember[i].changeHealth(healthAdded);
-			familyMember[i].changeSickness(sickWeightAdded);
+			familyMember[i].changeSickness(sickWeight);
 		}
 	}
 }
@@ -143,7 +143,7 @@ void Exploration::getGoodEvent(Inventory &inventory, WagonLeader &wagonLeader, s
 		int healthAdded{ getRandomNum(5, 20) };
 		int sickWeightDeducted{ getRandomNum(1, 3) };
 
-		familyHealthChange(familyMember, healthAdded, sickWeightDeducted);
+		familyHealthChange(familyMember, healthAdded, -sickWeightDeducted);
 
 		std::cout << "You come across a kind stranger!\n"
 			<< "You are given a magic powder by this stranger.\n\n"

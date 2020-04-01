@@ -30,7 +30,7 @@ public:
 	void displayFamilyMembers(const std::vector<FamilyMember> familyMember);
 
 	//Notifies the player that a family member has died. Displays the stats of that dead family member.
-	void displayDeadMember(const FamilyMember &familyMember) const;
+	void displayDeadMember(FamilyMember &familyMember);
 
 	//Displays the game stats such as date, total miles travelled, miles reamaining, and miles to next destination.
 	void displayGameStats(const Date &date, const Journey &journey) const;

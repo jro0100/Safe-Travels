@@ -11,14 +11,10 @@ void Inventory::setFoodCount(int count)
 void Inventory::changeFoodCount(int count)
 {
 	m_foodCount += count;
-}
 
-//Uses on pound of food
-void Inventory::useFood() 
-{ 
-	m_foodCount--;
+	if (m_foodCount < 0)
+		m_foodCount = 0;
 }
-
 
 
 //---------Medicine altering functions----------//
@@ -35,7 +31,13 @@ void Inventory::changeMedicineCount(int count)
 }
 
 //Uses on medicine pill
-void Inventory::useMedicine() { m_medicineCount--; }
+void Inventory::useMedicine() 
+{ 
+	m_medicineCount--; 
+
+	if (m_medicineCount < 0)
+		m_medicineCount = 0;
+}
 
 
 
@@ -50,12 +52,6 @@ void Inventory::setWagonPartsCount(int count)
 void Inventory::changeWagonPartsCount(int count) 
 { 
 	m_wagonPartsCount += count; 
-}
-
-//Uses one wagon part
-void Inventory::useWagonPart() 
-{ 
-	m_wagonPartsCount--; 
 }
 
 
