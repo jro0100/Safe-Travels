@@ -11,8 +11,13 @@ void FamilyMember::changeSickness(int sickWeight)
 {
 	m_sickWeight += sickWeight;
 
+	//Sick weight maxes out at 5
 	if (m_sickWeight > 5)
 		m_sickWeight = 5;
+
+	//Sick weight can not go below 0
+	if (m_sickWeight < 0)
+		m_sickWeight = 0;
 }
 
 //Makes the family member less sick. Uses medicine from the inventory

@@ -1,5 +1,7 @@
 #include "Game.h"
 
+void pause();
+
 Game::Game()
 {
 	//Seed srand to generate random numbers in the game
@@ -28,10 +30,10 @@ void Game::flow()
 
 		//If the player has reached the next destination, offer a choice to see the merchant
 		if (m_journey.getMilesToNextDest() == 100)
-			gameChoice = static_cast<gameChoices>(getNumChoice(1, 4));
+			gameChoice = static_cast<gameChoices>(getNumChoice(1, 5));
 		//The player has not reached the next destination and does not have a choice of seeing the merchant
 		else
-			gameChoice = static_cast<gameChoices>(getNumChoice(1, 3));
+			gameChoice = static_cast<gameChoices>(getNumChoice(1, 4));
 
 		//Clear the screen
 		system("cls");
@@ -41,9 +43,13 @@ void Game::flow()
 		{
 		case(VIEW_FAMILY_STATS):
 			m_menu.displayFamilyMembers(familyMember);
+			pause();
 			break;
 		case(STOP_AND_EXPLORE):
 			stopAndExplore(wagonLeader, familyMember);
+			break;
+		case(USE_SUPER_PILL):
+			useSuperPill(wagonLeader, familyMember);
 			break;
 		case(CONTINUE_JOURNEY):
 			continueJourney(familyMember);
@@ -83,4 +89,47 @@ void Game::continueJourney(std::vector<FamilyMember> &familyMember)
 		if (familyMember[i].isDead())
 			m_menu.displayDeadMember(familyMember[i]);
 	}
+}
+
+
+void Game::useSuperPill(WagonLeader &wagonLeader, std::vector<FamilyMember> &familyMember)
+{
+	if (m_inventory.getSuperPillCount() > 0 && familyMember.size() > 0)
+	{
+		m_menu.displayFamilyMembers(familyMember);
+		std::cout << "\tSelect a family member heal:\n";
+
+		int choiceNum{};
+		for (choiceNum = 0; choiceNum < familyMember.size(); choiceNum++)
+			std::cout << "\t(" << (choiceNum + 1) << ") " << familyMember[choiceNum].getName() << "\n";
+		std::cout << "\t(" << choiceNum + 1 << ") Exit\n";
+
+		int choice{};
+		choice = getNumChoice(1, familyMember.size() + 1);
+
+		if (choice != (choiceNum + 1))
+		{
+			familyMember[choice - 1].changeHealth(100);
+			familyMember[choice - 1].changeSickness(-5);
+			m_inventory.useSuperPill();
+
+			std::cout << "\nFamily Member Successfully Healed!\n\n";
+		}
+	}
+	else
+	{
+		std::cout << "\t\tUse Super Pill\n"
+			<< "\t    --------------------\n\n"
+			<< "*Error* - Inventory contains no super pills.\n\n";
+
+	}
+	pause();
+}
+
+void pause()
+{
+	std::cout << "Press any key to Return";
+	std::cin.ignore(32767, '\n');
+	std::cin.get();
+	system("cls");
 }

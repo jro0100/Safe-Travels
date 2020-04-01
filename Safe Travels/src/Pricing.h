@@ -5,12 +5,14 @@
 class Pricing
 {
 private:
-	int m_buyFoodPrice{ 5 };		 //Buy food price
-	int m_buyMedicinePrice{ 5 };     //Buy medicine price
-	int m_buyWagonPartsPrice { 7 };  //Buy wagon parts price
-	int m_sellFoodPrice{ 8 };	     //Sell food price
-	int m_sellMedicinePrice{ 8 };    //Sell medicine price
-	int m_sellWagonPartsPrice{ 10 }; //Sell wagon parts price
+	int m_buyFoodPrice{ 5 };		 //Merchant's food buying price
+	int m_buyMedicinePrice{ 5 };     //Merchant's medicine buying price
+	int m_buyWagonPartsPrice { 7 };  //Merchant's wagon parts buying price
+	int m_buySuperPillPrice{ 500 };  //Merchant's super pill buying price
+	int m_sellFoodPrice{ 8 };	     //Merchant's food selling price
+	int m_sellMedicinePrice{ 8 };    //Merchant's medicine selling price
+	int m_sellWagonPartsPrice{ 10 }; //Merchant's wagon parts selling price
+	int m_sellSuperPillPrice{ 500 }; //Merchant's super pill selling price
 public:
 	//-------Default Constructor-------//
 	/*

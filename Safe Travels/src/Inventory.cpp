@@ -7,14 +7,17 @@ void Inventory::setFoodCount(int count)
 	m_foodCount = count;
 }
 
-//Increases the food inventory
+//Increases or decreases the food count
 void Inventory::changeFoodCount(int count)
 {
 	m_foodCount += count;
 }
 
-//Decreases the food inventory
-void Inventory::useFood() { m_foodCount--; }
+//Uses on pound of food
+void Inventory::useFood() 
+{ 
+	m_foodCount--;
+}
 
 
 
@@ -25,13 +28,13 @@ void Inventory::setMedicineCount(int count)
 	m_medicineCount = count;
 }
 
-	//Increases the medicine inventory
+//Increases or decreases the medicine count
 void Inventory::changeMedicineCount(int count)
 {
 	m_medicineCount += count;
 }
 
-//Decreases the medicine inventory
+//Uses on medicine pill
 void Inventory::useMedicine() { m_medicineCount--; }
 
 
@@ -40,19 +43,42 @@ void Inventory::useMedicine() { m_medicineCount--; }
 //-------Wagon Parts altering functions--------//
 //Changes the wagon parts count. This will only be used by the merchant
 void Inventory::setWagonPartsCount(int count)
-{
-	m_wagonPartsCount = count;
+{ 
+	m_wagonPartsCount = count; 
 }
-	//Increases the wagon parts inventory
-void Inventory::changeWagonPartsCount(int count)
-{
-	m_wagonPartsCount += count;
+//Increases or decreases the wagon parts count
+void Inventory::changeWagonPartsCount(int count) 
+{ 
+	m_wagonPartsCount += count; 
 }
 
-//Decreases the wagon parts inventory
-void Inventory::useWagonPart() { m_wagonPartsCount--; }
+//Uses one wagon part
+void Inventory::useWagonPart() 
+{ 
+	m_wagonPartsCount--; 
+}
+
+
+//-------Super pill altering functions--------//
+//Changes the super pill count. This will only be used by the merchant
+void Inventory::setSuperPillCount(int count) 
+{
+	m_superPillCount = count; 
+}
+//Increases or decreases super pill count
+void Inventory::changeSuperPillCount(int count)
+{
+	m_superPillCount += count;
+}
+
+//Uses one super pill
+void Inventory::useSuperPill()
+{
+	m_superPillCount--;
+}
 
 //-------------Mmeber Variable Getters-----------//
-int Inventory::getFoodCount() const { return m_foodCount; }
-int Inventory::getMedicineCount() const { return m_medicineCount; }
+int Inventory::getFoodCount()	    const { return m_foodCount; }
+int Inventory::getMedicineCount()   const { return m_medicineCount; }
 int Inventory::getWagonPartsCount() const { return m_wagonPartsCount; }
+int Inventory::getSuperPillCount()  const { return m_superPillCount; }

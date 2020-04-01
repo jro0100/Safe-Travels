@@ -37,7 +37,8 @@ public:
 		FOOD	    = 1,
 		MEDICINE	= 2,
 		WAGON_PARTS = 3,
-		EXIT		= 4
+		SUPER_PILL  = 4,
+		EXIT		= 5
 	};
 private:
 	//The merchant holds his own inventory
@@ -47,7 +48,7 @@ private:
 	Pricing m_pricing;
 public:
 	//--------Constructor---------//
-	Merchant() : m_inventory{ 100, 50, 20 } {}
+	Merchant() : m_inventory{ 100, 100, 100, 100 } {}
 
 	//Interface for purchasing an item
 	void buyOrSellItems(Inventory &inventory, WagonLeader &wagonLeader, buyOrSell choice);

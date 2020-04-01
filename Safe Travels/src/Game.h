@@ -20,8 +20,9 @@ public:
 	{
 		VIEW_FAMILY_STATS = 1,
 		STOP_AND_EXPLORE  = 2,
-		CONTINUE_JOURNEY  = 3,
-		TALK_TO_MERCHANT  = 4
+		USE_SUPER_PILL    = 3,
+		CONTINUE_JOURNEY  = 4,
+		TALK_TO_MERCHANT  = 5
 	};
 private:
 	/*
@@ -52,4 +53,5 @@ public:
 	void stopAndExplore(WagonLeader &wagonLeader, std::vector<FamilyMember> &familyMember);
 	//Called when the player has chosen to continue on with their travels.
 	void continueJourney(std::vector<FamilyMember> &familyMember);
+	void useSuperPill(WagonLeader &wagonLeader, std::vector<FamilyMember> &familyMember);
 };

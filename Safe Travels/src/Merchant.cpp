@@ -62,10 +62,10 @@ void Merchant::buyOrSellItems(Inventory &inventory, WagonLeader &wagonLeader, bu
 
 	wagonLeader.displayInventory(inventory); //Display the player's inventory
 
-	std::cout << "\tChoose one of the following:\n\t(1) Food\n\t(2) Medicine\n\t(3) Wagon Parts\n\t(4) Exit\n\n";
+	std::cout << "\tChoose one of the following:\n\t(1) Food\n\t(2) Medicine\n\t(3) Wagon Parts\n\t(4) Super Pill\n\t(5) Exit\n\n";
 
 	//Gets and validates a number between 1 and 4 from the player and casts it to an enum
-	buySellItems choice = static_cast<buySellItems>(getNumChoice(1, 4));
+	buySellItems choice = static_cast<buySellItems>(getNumChoice(1, 5));
 
 	if (choice != EXIT) //if the player does choose to exit
 		//Do the backend work of buying or selling. This includes the validation of making sure
@@ -76,7 +76,7 @@ void Merchant::buyOrSellItems(Inventory &inventory, WagonLeader &wagonLeader, bu
 }
 
 /*
-	This is where all of the backend work of buying and selling take place. The only interaction with the player
+	This is where all backend work of buying and selling take place. The only interaction with the player
 	is asking for the amount to either buy or sell.
 
 	When buying, this member function will:
@@ -144,9 +144,9 @@ void Merchant::makePurchase(Inventory &inventory, WagonLeader &wagonLeader, buyO
 				case(MEDICINE):
 					if (itemQuantity <= m_inventory.getMedicineCount())
 					{
-						//Add certain amount medicine to the player's inventory
+						//Add certain amount of  medicine to the player's inventory
 						inventory.changeMedicineCount(itemQuantity);
-						//Subtract that same certain medicine of food from the merchant's inventory
+						//Subtract that same quantitiy of medicine from the merchant's inventory
 						m_inventory.changeMedicineCount(-itemQuantity);
 					}
 					//Otherwise, the purchase has failed
@@ -158,10 +158,22 @@ void Merchant::makePurchase(Inventory &inventory, WagonLeader &wagonLeader, buyO
 				case(WAGON_PARTS):
 					if (itemQuantity <= m_inventory.getWagonPartsCount())
 					{
-						//Add certain amount wagon parts to the player's inventory
+						//Add certain of amount wagon parts to the player's inventory
 						inventory.changeWagonPartsCount(itemQuantity);
-						//Subtract that same certain wagon parts of food from the merchant's inventory
+						//Subtract that same quantity of wagon parts from the merchant's inventory
 						m_inventory.changeWagonPartsCount(-itemQuantity);
+					}
+					//Otherwise, the purchase has failed
+					else
+						purchaseFailed = true;
+					break;
+				case(SUPER_PILL):
+					if (itemQuantity <= m_inventory.getSuperPillCount())
+					{
+						//Add certain amount of super pills to the player's inventory
+						inventory.changeSuperPillCount(itemQuantity);
+						//Subtract thatsame quantity of super pills from the merchant's inventory
+						m_inventory.changeSuperPillCount(-itemQuantity);
 					}
 					//Otherwise, the purchase has failed
 					else
@@ -170,7 +182,8 @@ void Merchant::makePurchase(Inventory &inventory, WagonLeader &wagonLeader, buyO
 				}
 				//The transaction has to have succeeded(purchaseFailed = false) if this is being run.
 				//Complete the purchase by taking the cash from the player.
-				wagonLeader.changeCashOnHand(-purchaseCost);
+				if(!purchaseFailed)
+					wagonLeader.changeCashOnHand(-purchaseCost);
 			}
 			//Otherwise, the cost of the item being bought did exceed the player's cashOnHand, and the purchase fails
 			else
@@ -232,6 +245,22 @@ void Merchant::makePurchase(Inventory &inventory, WagonLeader &wagonLeader, buyO
 				else
 					purchaseFailed = true;
 				break;
+			case(SUPER_PILL):
+				//If the amount of super pills being sold does not exceed the amount the player has on hand,
+				//then continue with the transaction
+				if (itemQuantity <= inventory.getSuperPillCount())
+				{
+					//Give the cash to the player
+					wagonLeader.changeCashOnHand(purchaseCost);
+					//Give the super pills to the merchant
+					m_inventory.changeSuperPillCount(itemQuantity);
+					//Take the super pills from the player
+					inventory.changeSuperPillCount(-itemQuantity);
+				}
+				//Otherwise, the transaction has failed
+				else
+					purchaseFailed = true;
+				break;
 			}
 		}
 
@@ -255,8 +284,9 @@ void Merchant::printMerchantsInventory()
 	std::cout << "\t\tMerchants Inventory\n"
 		<< "\t  ---------------------------\n"
 		<< "\tFood: " << m_inventory.getFoodCount() << " lb(s)\n"
-		<< "\tMedicine: " << m_inventory.getMedicineCount() << " pill(s) \n"
-		<< "\tWagon Parts: " << m_inventory.getWagonPartsCount() << " part(s)\n\n";
+		<< "\tMedicine: " << m_inventory.getMedicineCount() << " pill(s)\n"
+		<< "\tWagon Parts: " << m_inventory.getWagonPartsCount() << " part(s)\n"
+		<< "\tSuper Pills: " << m_inventory.getSuperPillCount() << " pill(s)\n\n";
 }
 
 //Randomly resets the merchants inventory. This simulates a different merchant at each stop
@@ -265,4 +295,5 @@ void Merchant::setRandomInventory()
 	m_inventory.setFoodCount(getRandomNum(50, 80));
 	m_inventory.setMedicineCount(getRandomNum(50, 80));
     m_inventory.setWagonPartsCount(getRandomNum(2, 5));
+	m_inventory.setSuperPillCount(getRandomNum(0, 1));
 }

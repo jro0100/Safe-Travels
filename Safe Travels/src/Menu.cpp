@@ -115,12 +115,12 @@ void Menu::displayFamilyMembers(const std::vector<FamilyMember> familyMember)
 	
 	for (int i = 0; i < familyMember.size() ; i++)
 	{
-		std::cout << "Name: " << familyMember[i].getName() << "\n"
-			<< "Health: " << familyMember[i].getHealth() << "\n"
-			<< "Appetite: " << familyMember[i].getAppetite() << "\n"
-			<< "Sick Level: " << familyMember[i].getSickWeight() << "\n\n";
+		std::cout << "\tName: " << familyMember[i].getName() << "\n"
+			<< "\tHealth: " << familyMember[i].getHealth() << "\n"
+			<< "\tAppetite: " << familyMember[i].getAppetite() << "\n"
+			<< "\tSick Level: " << familyMember[i].getSickWeight() << "\n\n";
 	}
-	pauseScreen();
+	//pauseScreen();
 }
 
 //Notifies the player that a family member has died. Displays the stats of that dead family member.
@@ -128,11 +128,11 @@ void Menu::displayDeadMember(const FamilyMember &familyMember) const
 {
 	system("cls");
 	std::cout << "\t\tDeath in Family\n"
-		<< "\t      ------------------\n"
+		<< "\t        ------------------\n"
 		<< familyMember.getName() << " has died!\n\n"
-		<< "Health --> " << familyMember.getHealth() << "\n"
-		<< "Appetite --> " << familyMember.getAppetite() << "\n"
-		<< "Sick Level --> " << familyMember.getSickWeight() << "\n\n";
+		<< "\tHealth --> " << familyMember.getHealth() << "\n"
+		<< "\tAppetite --> " << familyMember.getAppetite() << "\n"
+		<< "\tSick Level --> " << familyMember.getSickWeight() << "\n\n";
 	
 	pauseScreen();
 }
@@ -152,16 +152,17 @@ void Menu::displayGameStats(const Date &date, const Journey &journey) const
 //Displays the options for the player each round while the game is running
 void Menu::displayGameOptions(const Journey &journey) const 
 {	
-		std::cout << "\t\t   Options\n"
-			<< "\t----------------------------\n"
-			<< "\t(1) View family stats\n"
-			<< "\t(2) Stop and explore\n"
-			<< "\t(3) Continue on with journey\n";
+	std::cout << "\t\t   Options\n"
+		<< "\t----------------------------\n"
+		<< "\t(1) View family stats\n"
+		<< "\t(2) Stop and explore\n"
+		<< "\t(3) Use a Super Pill\n"
+		<< "\t(4) Continue on with journey\n";
 	
 	//If the next destination has been reached, the player can see the merchant.
 	//A destination will be reached every 100 miles
 	if (journey.getMilesToNextDest() == 100)
-		std::cout << "\t(4) Interact with the merchant\n\n";
+		std::cout << "\t(5) Interact with the merchant\n\n";
 }
 
 //Temporarily pauses the screen for the player

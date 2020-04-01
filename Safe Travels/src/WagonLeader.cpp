@@ -18,5 +18,6 @@ void WagonLeader::displayInventory(const Inventory &inventory) const
 		<< "\tFood: " << inventory.getFoodCount() << " lbs\n"
 		<< "\tMedicine: " << inventory.getMedicineCount() << " pills\n"
 		<< "\tWagon Parts: " << inventory.getWagonPartsCount() << " parts\n"
+		<< "\tSuper Pills: " << inventory.getSuperPillCount() << " pills\n"
 		<< "\tCash on Hand: $" << getCashOnHand() << "\n\n";
 }
