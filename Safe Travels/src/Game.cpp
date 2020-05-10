@@ -6,8 +6,41 @@ Game::Game()
 {
 	//Seed srand to generate random numbers in the game
 	srand((unsigned)time(NULL));
+	
 	//Welcome menu displayed before the game begins
 	m_menu.welcomeMenu();
+	
+	//Game has officially started
+	m_gameOverType = GAME_NOT_COMPLETED;
+}
+
+Game::~Game()
+{
+	system("cls");
+	std::cout << "\t\t\tGame Over\n" << "\t\t------------------------\n\n";
+
+	switch (m_gameOverType)
+	{
+	case(FAMILY_MEMBERS_DEAD):
+		std::cout << "\tSadly, All Members of your Family have Died";
+		break;
+	case(END_OF_JOURNEY_REACHED):
+		std::cout << "Congratulations! You have successfully completed the journey!";
+		break;
+	default:
+		std::cout << "    An unknown error has occured causing the game to end";
+		break;
+	}
+
+	std::cout << "\n\n\n\t\t\tMonth: " << m_date.getMonth() << "\n\t\t\tWeek: " 
+			  << m_date.getWeek() << "\n\t\t\tYear: " << m_date.getYear() 
+			  << "\n\n" << "\t\t   Miles Travelled: " << m_journey.getMilesTravelled() 
+			  << "\n" << "\t\t   Miles Remaining: " << m_journey.getMilesRemaining() << "\n\n\n";
+
+	std::cout << "\t  ----------------------------------\n" << "\t   THANKS FOR PLAYING SAFE TRAVELS\n"
+			  << "\t  ----------------------------------\n";
+
+	std::cin.get();
 }
 
 void Game::flow()
@@ -16,7 +49,7 @@ void Game::flow()
 	WagonLeader wagonLeader{ m_menu.createWagonLeader(m_inventory) };
 	std::vector<FamilyMember> familyMember{ m_menu.createFamilyMembers(m_inventory) };
 
-	while (true)
+	while (m_gameOverType == GAME_NOT_COMPLETED)
 	{
 		//Print the date and overall game mileage
 		m_menu.displayGameStats(m_date, m_journey);
@@ -52,7 +85,7 @@ void Game::flow()
 			useSuperPill(wagonLeader, familyMember);
 			break;
 		case(CONTINUE_JOURNEY):
-			continueJourney(familyMember);
+			m_gameOverType = continueJourney(familyMember);
 			break;
 		case(TALK_TO_MERCHANT):
 			m_merchant.interactWithMerchant(m_journey, m_inventory, wagonLeader);
@@ -72,23 +105,47 @@ void Game::stopAndExplore(WagonLeader &wagonLeader, std::vector<FamilyMember> &f
 		m_exploration.areaAlreadyExplored();
 }
 
-//Makes the necessary calls to continue on with the journey
-void Game::continueJourney(std::vector<FamilyMember> &familyMember)
+//Makes the necessary calls to continue on with the journey. True is returned
+//if the game ends due to all family members dead or reaching the end of the journey.
+Game::gameOverType Game::continueJourney(std::vector<FamilyMember> &familyMember)
 {
 	//Increases the date
 	m_date.increaseDate();
 	//Increases the distance by a random number between 20 and 50
 	m_journey.increaseMilesTravelled(getRandomNum(20, 50));
 
-	//Runs through a round for each family member
+	//Counts the number of family members that have died throughout the game
+	static int familyMembersDead{};
+	//Return whether the game has ended or not
+	gameOverType gameOver{ GAME_NOT_COMPLETED };
+
+	//Runs through a round for each family member that is not dead
 	for (int i = 0; i < familyMember.size(); i++)
 	{
-		familyMember[i].runThroughRound();
-		
 		//If player died, display the death on the screen
-		if (familyMember[i].isDead())
+		if (familyMember[i].isDead() && familyMember[i].getHealth() != -1)
+		{
 			m_menu.displayDeadMember(familyMember[i]);
+			familyMember[i].changeHealth(-1);
+			familyMember[i].markAsDead();
+			//Increase the family member death count
+			familyMembersDead++;
+		}
+		else if(familyMember[i].getHealth() != -1)
+			familyMember[i].runThroughRound();
 	}
+
+	//If the family member death count equals total number of family members
+	if (familyMembersDead == familyMember.size())
+		gameOver = FAMILY_MEMBERS_DEAD;
+	//If the journey of the player has ended
+	else if (m_journey.getMilesRemaining() <= 0)
+		gameOver = END_OF_JOURNEY_REACHED;
+	//Else, the game has not yet been completed
+	else
+		gameOver = GAME_NOT_COMPLETED;
+
+	return gameOver;
 }
 
 

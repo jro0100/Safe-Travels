@@ -91,3 +91,8 @@ void FamilyMember::runThroughRound()
 	decreaseHealth();
 	m_inventory->changeFoodCount(-m_appetite);
 }
+
+void FamilyMember::markAsDead()
+{
+	m_name += " (Dead)";
+}

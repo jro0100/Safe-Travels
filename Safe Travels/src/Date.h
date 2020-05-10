@@ -32,5 +32,7 @@ public:
 	void increaseDate();
 
 	std::string getMonth() const;
+	int getWeek() const;
+	int getYear() const;
 	friend std::ostream& operator<<(std::ostream &out, const Date &date);
 };

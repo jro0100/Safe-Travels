@@ -59,9 +59,15 @@ std::string Date::getMonth() const
 	}
 }
 
+//Return the current week
+int Date::getWeek() const { return m_week; }
+
+//Return the current year
+int Date::getYear() const { return m_year; }
+
 //Overloaded operator<<. Prints the date
 std::ostream& operator<<(std::ostream &out, const Date &date)
 {
-	out << date.getMonth() << "\n\tWeek: "<< date.m_week << "\n\tYear: " << date.m_year;
+	out << date.getMonth() << "\n\tWeek: "<< date.getWeek() << "\n\tYear: " << date.getYear();
 	return out;
 }

@@ -126,6 +126,8 @@ void Menu::displayFamilyMembers(const std::vector<FamilyMember> familyMember)
 //Notifies the player that a family member has died. Displays the stats of that dead family member.
 void Menu::displayDeadMember(FamilyMember &familyMember)
 {
+	if (familyMember.getHealth() != -1)
+	{
 		system("cls");
 		std::cout << "\t\tDeath in Family\n"
 			<< "\t        ------------------\n"
@@ -135,6 +137,7 @@ void Menu::displayDeadMember(FamilyMember &familyMember)
 			<< "\tSick Level --> " << familyMember.getSickWeight() << "\n\n";
 
 		pauseScreen();
+	}
 }
 
 //Displays the game stats such as date, total miles travelled, miles reamaining, and miles to next destination.

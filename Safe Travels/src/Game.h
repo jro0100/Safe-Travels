@@ -24,6 +24,13 @@ public:
 		CONTINUE_JOURNEY  = 4,
 		TALK_TO_MERCHANT  = 5
 	};
+	
+	enum gameOverType
+	{
+		FAMILY_MEMBERS_DEAD,
+		END_OF_JOURNEY_REACHED,
+		GAME_NOT_COMPLETED
+	};
 private:
 	/*
 		Use composition to create member variables of all other classes.
@@ -41,10 +48,15 @@ private:
 	Inventory m_inventory;
 	Merchant m_merchant;
 
+	//Contains information on whether the game has ended or not. This gameOverType is
+	//used by the destructor when the game has ended.
+	gameOverType m_gameOverType;
+
 public:
 	//-----CONSTRUCTOR-----//
 	//Seeds the srand function and calls m_menu.welcomeMenu() function.
 	Game();
+	~Game();
 
 	//Function that controls the flow of the game.
 	void flow();
@@ -52,6 +64,6 @@ public:
 	//Called when the player has chosen to stop and explore.
 	void stopAndExplore(WagonLeader &wagonLeader, std::vector<FamilyMember> &familyMember);
 	//Called when the player has chosen to continue on with their travels.
-	void continueJourney(std::vector<FamilyMember> &familyMember);
+	gameOverType continueJourney(std::vector<FamilyMember> &familyMember);
 	void useSuperPill(WagonLeader &wagonLeader, std::vector<FamilyMember> &familyMember);
 };

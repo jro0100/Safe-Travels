@@ -68,4 +68,5 @@ public:
 
 	//Return the name of the Family Member//
 	virtual std::string getName() const final override { return m_name; }
+	void markAsDead();
 };
